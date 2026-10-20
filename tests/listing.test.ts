@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import { describe, expect, test } from 'vitest';
-import { listingsFromResponse, normalizeListing } from '../src/nexon/listing.js';
+import { ResponseShapeError, listingsFromResponse, normalizeListing } from '../src/nexon/listing.js';
 
 const resp = JSON.parse(fs.readFileSync('tests/fixtures/search-response.json', 'utf8'));
 
@@ -37,18 +37,26 @@ describe('normalizeListing', () => {
     expect(JSON.stringify(l)).not.toContain('undefined');
   });
 
-  test('객체가 아닌 입력은 기본 매물', () => {
-    const l = normalizeListing(null);
-    expect(l).toMatchObject({ tradeSn: '', itemName: '', pricePerItem: 0, quantity: 1 });
-    expect(JSON.stringify(l)).not.toContain('undefined');
+  test('객체가 아니거나 tradeSn이 없으면 ResponseShapeError', () => {
+    expect(() => normalizeListing(null)).toThrow(ResponseShapeError);
+    expect(() => normalizeListing({ pricePerItem: 5 })).toThrow(ResponseShapeError);
+    expect(() => normalizeListing({ tradeSn: '', pricePerItem: 5 })).toThrow(ResponseShapeError);
   });
 
-  test('숫자가 아닌 가격은 0', () => {
-    expect(normalizeListing({ pricePerItem: '12abc' }).pricePerItem).toBe(0);
+  test('가격의 쉼표를 제거하고, 숫자가 아니면 ResponseShapeError', () => {
+    expect(normalizeListing({ tradeSn: 1, pricePerItem: '3,400,000' }).pricePerItem).toBe(3400000);
+    expect(() => normalizeListing({ tradeSn: 1, pricePerItem: 'abc' })).toThrow(ResponseShapeError);
+    expect(() => normalizeListing({ tradeSn: 1, pricePerItem: '12abc' })).toThrow(ResponseShapeError);
+    expect(() => normalizeListing({ tradeSn: 1 })).toThrow(ResponseShapeError);
   });
 
-  test('items가 없으면 빈 배열', () => {
-    expect(listingsFromResponse(null)).toEqual([]);
-    expect(listingsFromResponse({})).toEqual([]);
+  test('quantity가 없으면 1', () => {
+    expect(normalizeListing({ tradeSn: 1, pricePerItem: 5 }).quantity).toBe(1);
+  });
+
+  test('items 배열이 없으면 ResponseShapeError', () => {
+    expect(() => listingsFromResponse(null)).toThrow(ResponseShapeError);
+    expect(() => listingsFromResponse({})).toThrow(ResponseShapeError);
+    expect(() => listingsFromResponse({ items: [] })).not.toThrow();
   });
 });

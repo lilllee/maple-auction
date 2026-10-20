@@ -118,3 +118,13 @@ test('갱신도 실패하면 Error를 던진다', async () => {
   saveTokens(file, fresh());
   await expect(createKakaoNotifier(cfg, file, fetchImpl as any, () => now).send('hi')).rejects.toThrow(/invalid_grant/);
 });
+
+test('200자를 넘는 텍스트는 잘라서 보낸다', async () => {
+  const seen: { url: string; init: any }[] = [];
+  const fetchImpl = async (url: string, init: any) => { seen.push({ url, init }); return new Response('{"result_code":0}', { status: 200 }); };
+  saveTokens(file, fresh());
+  await createKakaoNotifier(cfg, file, fetchImpl as any, () => now).send('가'.repeat(300));
+  const tpl = JSON.parse(decodeURIComponent(String(seen[0].init.body).slice('template_object='.length)));
+  expect(Array.from(tpl.text as string).length).toBeLessThanOrEqual(200);
+  expect(tpl.text.endsWith('…')).toBe(true);
+});

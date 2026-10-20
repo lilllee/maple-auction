@@ -141,3 +141,18 @@ test('이름이 너무 길어도 최종 상한 200자를 지킨다', () => {
   expect(m.endsWith('…')).toBe(true);
   expect(m.split('\n')[0]).toBe('[1/1] 1,234,567,890 메소');
 });
+
+test('실패/중단 메시지는 긴 사유여도 200자 이내이고 접두어를 유지한다', () => {
+  const reason = '가'.repeat(255);
+  const f = formatFailureMessage(3, reason);
+  expect(textLength(f)).toBeLessThanOrEqual(MAX_TEXT_LENGTH);
+  expect(f.startsWith('[옥션] 검색이 3번 연속 실패했습니다.\n')).toBe(true);
+  const s = formatStopMessage(reason);
+  expect(textLength(s)).toBeLessThanOrEqual(MAX_TEXT_LENGTH);
+  expect(s.startsWith('[옥션 감시 중단] ')).toBe(true);
+});
+
+test('실패/중단 메시지는 사유의 첫 줄만 쓴다', () => {
+  expect(formatStopMessage('첫 줄\n  at stack\r\n  at more')).toBe('[옥션 감시 중단] 첫 줄');
+  expect(formatFailureMessage(3, 'Error: boom\n  at x')).toBe('[옥션] 검색이 3번 연속 실패했습니다.\nError: boom');
+});

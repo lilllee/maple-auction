@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { ConfigError, loadConfig, readEnvFile, type AppConfig } from '../config.js';
 import type { Notifier } from '../kakao/send.js';
-import { ApiError, getDailyLimit, resolveSelection, searchListings } from '../nexon/api.js';
+import { ApiError, SessionExpiredError, getDailyLimit, resolveSelection, searchListings } from '../nexon/api.js';
 import { AUCTION_ORIGIN, launchAuctionBrowser, type AuctionBrowser } from '../nexon/browser.js';
 import { buildSearchRequest, type SearchRequestBody, type Selection } from '../nexon/filters.js';
 import type { WatchDeps } from '../watch/loop.js';
@@ -23,6 +23,23 @@ export function exitCodeFor(err: unknown): number {
   if (err instanceof ConfigError) return 2;
   if (err instanceof ApiError && err.status === 0) return 2;
   return 1;
+}
+
+/** 하루 9시간 감시 기준 검색 횟수가 한도를 넘길 것 같으면 경고 문구를, 아니면 null. */
+export function dailySearchWarning(intervalMinutes: number, limit: number, minRemaining: number): string | null {
+  const searches = Math.ceil((9 * 60) / intervalMinutes);
+  if (searches <= limit - minRemaining) return null;
+  return `경고: INTERVAL_MINUTES=${intervalMinutes}이면 하루 9시간 기준 약 ${searches}회 검색해 한도 ${limit}회(최소 보유 ${minRemaining}회)를 넘길 수 있습니다.`;
+}
+
+function assertOnAuctionPage(browser: AuctionBrowser): void {
+  let origin: string;
+  try {
+    origin = new URL(browser.page.url()).origin;
+  } catch {
+    throw new SessionExpiredError('옥션 페이지를 벗어났습니다 (주소를 읽을 수 없음)');
+  }
+  if (origin !== AUCTION_ORIGIN) throw new SessionExpiredError('옥션 페이지를 벗어났습니다 (' + origin + ')');
 }
 
 export async function openSession(opts: { requireLogin: boolean }): Promise<Session> {
@@ -64,8 +81,14 @@ export function createWatchDeps(parts: {
   const { session, notifier, state, stateFile, log } = parts;
   const { browser, body, config } = session;
   return {
-    search: () => searchListings(browser, body),
-    getRemaining: async () => (await getDailyLimit(browser)).remaining,
+    search: async () => {
+      assertOnAuctionPage(browser);
+      return searchListings(browser, body);
+    },
+    getRemaining: async () => {
+      assertOnAuctionPage(browser);
+      return (await getDailyLimit(browser)).remaining;
+    },
     notify: (t) => notifier.send(t),
     recoverSession: () => browser.waitForSession(15000),
     onLoginRequired: async () => {

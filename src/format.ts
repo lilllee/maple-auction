@@ -24,7 +24,7 @@ function gradedLine(prefix: string, grade: string | null, lines: string[]): stri
   return `${head}: ${lines.join(' / ')}`;
 }
 
-function truncateWithEllipsis(s: string, maxLength: number): string {
+export function truncateWithEllipsis(s: string, maxLength: number): string {
   const chars = Array.from(s);
   if (chars.length <= maxLength) return s;
   return `${chars.slice(0, Math.max(maxLength - 1, 0)).join('')}…`;
@@ -87,10 +87,15 @@ export function formatLimitMessage(remaining: number): string {
   return `[옥션] 오늘 남은 검색이 ${remaining}회라 검색을 멈춥니다. 내일 다시 시작합니다.`;
 }
 
+function withReason(prefix: string, reason: string): string {
+  const firstLine = reason.split(/\r?\n/)[0];
+  return prefix + truncateWithEllipsis(firstLine, MAX_TEXT_LENGTH - textLength(prefix));
+}
+
 export function formatFailureMessage(count: number, lastError: string): string {
-  return `[옥션] 검색이 ${count}번 연속 실패했습니다.\n${lastError}`;
+  return withReason(`[옥션] 검색이 ${count}번 연속 실패했습니다.\n`, lastError);
 }
 
 export function formatStopMessage(reason: string): string {
-  return `[옥션 감시 중단] ${reason}`;
+  return withReason('[옥션 감시 중단] ', reason);
 }

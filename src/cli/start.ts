@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { createWatchDeps, errorMessage, exitCodeFor, openSession } from './_bootstrap.js';
+import { createWatchDeps, dailySearchWarning, errorMessage, exitCodeFor, openSession } from './_bootstrap.js';
 import { formatStartMessage, formatStopMessage } from '../format.js';
 import { createKakaoNotifier } from '../kakao/send.js';
 import { getDailyLimit } from '../nexon/api.js';
@@ -14,10 +14,12 @@ async function main(): Promise<void> {
   const log = (msg: string): void => console.log(`[${new Date().toLocaleTimeString('ko-KR')}] ${msg}`);
   const deps = createWatchDeps({ session, notifier, state: loadState(stateFile), stateFile, log });
 
-  const { remaining } = await getDailyLimit(browser).catch(async (err: unknown) => {
+  const { remaining, limit } = await getDailyLimit(browser).catch(async (err: unknown) => {
     await browser.close().catch(() => undefined);
     throw err;
   });
+  const warning = dailySearchWarning(config.intervalMinutes, limit, config.minRemainingSearches);
+  if (warning) console.log(warning);
   try {
     await notifier.send(formatStartMessage(config.search, remaining));
   } catch (err) {

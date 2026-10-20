@@ -2,11 +2,12 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, test } from 'vitest';
-import { createWatchDeps, errorMessage, exitCodeFor, type Session } from '../src/cli/_bootstrap.js';
+import { createWatchDeps, dailySearchWarning, errorMessage, exitCodeFor, type Session } from '../src/cli/_bootstrap.js';
 import { ConfigError, type AppConfig, type SearchSpec } from '../src/config.js';
 import type { Notifier } from '../src/kakao/send.js';
-import { ApiError } from '../src/nexon/api.js';
+import { ApiError, SessionExpiredError } from '../src/nexon/api.js';
 import type { AuctionBrowser } from '../src/nexon/browser.js';
+import { ResponseShapeError } from '../src/nexon/listing.js';
 import { EMPTY_STATE } from '../src/watch/state.js';
 
 const SPEC: SearchSpec = {
@@ -28,6 +29,7 @@ const BODY = { keyword: 'x' } as unknown as Session['body'];
 interface FakeOpts {
   apiFetch?: (method: string, path: string, body?: unknown) => Promise<{ status: number; data: unknown }>;
   restore?: () => Promise<void>;
+  url?: () => string;
 }
 
 const tmpDirs: string[] = [];
@@ -39,6 +41,7 @@ function setup(opts: FakeOpts = {}) {
   const calls: string[] = [];
   const fetches: Array<{ method: string; path: string; body?: unknown }> = [];
   const browser = {
+    page: { url: opts.url ?? (() => 'https://auction.maplestory.nexon.com/buy') },
     async apiFetch(method: string, p: string, body?: unknown) {
       fetches.push({ method, path: p, body });
       return opts.apiFetch ? opts.apiFetch(method, p, body) : { status: 200, data: null };
@@ -82,6 +85,19 @@ describe('createWatchDeps', () => {
     });
     expect(await t.deps.getRemaining()).toBe(42);
     expect(t.fetches[0]).toMatchObject({ method: 'GET', path: '/v1/market/web/daily-limit' });
+  });
+
+  test('옥션 페이지를 벗어나면 API를 호출하지 않고 SessionExpiredError', async () => {
+    const t = setup({ url: () => 'https://nxlogin.nexon.com/login' });
+    await expect(t.deps.search()).rejects.toThrow(SessionExpiredError);
+    await expect(t.deps.getRemaining()).rejects.toThrow(SessionExpiredError);
+    expect(t.fetches).toEqual([]);
+  });
+
+  test('page.url()이 던져도 SessionExpiredError', async () => {
+    const t = setup({ url: () => { throw new Error('closed'); } });
+    await expect(t.deps.search()).rejects.toThrow(SessionExpiredError);
+    expect(t.fetches).toEqual([]);
   });
 
   test('recoverSession은 waitForSession(15000)의 결과를 돌려준다', async () => {
@@ -131,11 +147,23 @@ describe('exitCodeFor / errorMessage', () => {
     expect(exitCodeFor(new ApiError('x', 0))).toBe(2);
     expect(exitCodeFor(new ApiError('x', 500))).toBe(1);
     expect(exitCodeFor(new Error('x'))).toBe(1);
+    expect(exitCodeFor(new ResponseShapeError('x'))).toBe(1);
     expect(exitCodeFor('str')).toBe(1);
   });
 
   test('오류 메시지', () => {
     expect(errorMessage(new Error('boom'))).toBe('boom');
     expect(errorMessage('str')).toBe('str');
+  });
+});
+
+describe('dailySearchWarning', () => {
+  test('한도 안이면 null', () => {
+    expect(dailySearchWarning(15, 100, 10)).toBeNull();
+  });
+  test('한도를 넘기면 경고', () => {
+    const w = dailySearchWarning(1, 100, 10);
+    expect(w).toContain('540회');
+    expect(w).toContain('INTERVAL_MINUTES=1');
   });
 });

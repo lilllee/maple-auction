@@ -35,8 +35,20 @@ function readPotential(v: unknown): { grade: string | null; lines: string[] } {
   return { grade: g === null ? null : GRADE_LABEL_BY_NUMBER.get(g) ?? null, lines };
 }
 
+export class ResponseShapeError extends Error {
+  name = 'ResponseShapeError';
+}
+
 export function normalizeListing(raw: unknown): Listing {
-  const r = asRecord(raw) ?? {};
+  const r = asRecord(raw);
+  if (!r) throw new ResponseShapeError('검색 응답 형식을 이해할 수 없습니다: 매물이 객체가 아닙니다');
+  if (r.tradeSn === undefined || r.tradeSn === null || String(r.tradeSn) === '') {
+    throw new ResponseShapeError('검색 응답 형식을 이해할 수 없습니다: 매물 번호(tradeSn)가 없습니다');
+  }
+  const price = finiteNumber(typeof r.pricePerItem === 'string' ? r.pricePerItem.replace(/,/g, '') : r.pricePerItem);
+  if (price === null) {
+    throw new ResponseShapeError('검색 응답 형식을 이해할 수 없습니다: 가격(pricePerItem)이 숫자가 아닙니다');
+  }
   const tip = asRecord(r.toolTip) ?? {};
   const upgrade = asRecord(tip.upgradeInfo) ?? {};
   const potential = readPotential(upgrade.potential);
@@ -45,9 +57,9 @@ export function normalizeListing(raw: unknown): Listing {
     : typeof tip.itemName === 'string' ? tip.itemName : '';
   const quantity = r.quantity === undefined ? 1 : finiteNumber(r.quantity) ?? 1;
   return {
-    tradeSn: r.tradeSn === undefined || r.tradeSn === null ? '' : String(r.tradeSn),
+    tradeSn: String(r.tradeSn),
     itemName,
-    pricePerItem: finiteNumber(r.pricePerItem) ?? 0,
+    pricePerItem: price,
     quantity,
     starforce: finiteNumber(tip.starforce) ?? finiteNumber(r.starforce),
     potentialGrade: potential.grade,
@@ -61,5 +73,8 @@ export function normalizeListing(raw: unknown): Listing {
 
 export function listingsFromResponse(resp: unknown): Listing[] {
   const items = asRecord(resp)?.items;
-  return Array.isArray(items) ? items.map(normalizeListing) : [];
+  if (!Array.isArray(items)) {
+    throw new ResponseShapeError('검색 응답 형식을 이해할 수 없습니다: items 배열이 없습니다');
+  }
+  return items.map(normalizeListing);
 }

@@ -93,12 +93,38 @@ describe('runCycle', () => {
     for (let i = 0; i < 4; i++) expect(await runCycle(d, st)).toBe('failed');
     expect(d.sent).toEqual([formatFailureMessage(FAILURE_ALERT_AT, 'Error: boom')]); expect(st.consecutiveFailures).toBe(4);
   });
-  test('notify가 던져도 runCycle은 던지지 않는다', async () => {
+  test('알림이 모두 실패하면 notify-failed, 지문을 저장하지 않는다', async () => {
     fresh();
     const log = vi.fn();
-    const d = makeDeps({ search: async () => [L('a', 10)], notify: async () => { throw new Error('kakao down'); }, log });
-    await expect(runCycle(d, st)).resolves.toBe('notified'); expect(d.state.lastFingerprint).toBe('a:10');
+    const saveState = vi.fn();
+    const d = makeDeps({ search: async () => [L('a', 10)], notify: async () => { throw new Error('kakao down'); }, log, saveState });
+    await expect(runCycle(d, st)).resolves.toBe('notify-failed');
+    expect(d.state.lastFingerprint).toBe(EMPTY_STATE.lastFingerprint);
+    expect(saveState).not.toHaveBeenCalled();
+    expect(st.consecutiveFailures).toBe(0);
     expect(log).toHaveBeenCalledWith(expect.stringContaining('알림 전송 실패'));
+    expect(log).toHaveBeenCalledWith('알림 전송에 모두 실패해 이번 결과를 저장하지 않습니다');
+  });
+  test('3건 중 1건만 실패해도 notified, 지문을 저장한다', async () => {
+    fresh();
+    let n = 0;
+    const saveState = vi.fn();
+    const d = makeDeps({
+      search: async () => [L('a', 10), L('b', 20), L('c', 30)],
+      notify: async () => { if (++n === 2) throw new Error('flaky'); },
+      saveState,
+    });
+    await expect(runCycle(d, st)).resolves.toBe('notified');
+    expect(d.state.lastFingerprint).toBe('a:10|b:20|c:30');
+    expect(saveState).toHaveBeenCalledTimes(1);
+  });
+  test('매물 없음 알림이 실패하면 notify-failed, 저장하지 않는다', async () => {
+    fresh();
+    const saveState = vi.fn();
+    const d = makeDeps({ search: async () => [], notify: async () => { throw new Error('down'); }, saveState });
+    await expect(runCycle(d, st)).resolves.toBe('notify-failed');
+    expect(saveState).not.toHaveBeenCalled();
+    expect(d.state.lastFingerprint).toBe(EMPTY_STATE.lastFingerprint);
   });
   test('성공(notified/unchanged)이면 연속 실패 횟수를 0으로 되돌린다', async () => {
     fresh();

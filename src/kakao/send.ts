@@ -1,4 +1,4 @@
-import { BUY_PAGE_URL } from '../format.js';
+import { BUY_PAGE_URL, MAX_TEXT_LENGTH, textLength, truncateWithEllipsis } from '../format.js';
 import { type KakaoCfg, type KakaoTokens, loadTokens, needsRefresh, refreshTokens, saveTokens } from './auth.js';
 
 export const SEND_URL = 'https://kapi.kakao.com/v2/api/talk/memo/default/send';
@@ -21,7 +21,8 @@ export function createKakaoNotifier(cfg: KakaoCfg, tokenFile: string, fetchImpl:
     });
 
   return {
-    async send(text: string): Promise<void> {
+    async send(rawText: string): Promise<void> {
+      const text = textLength(rawText) > MAX_TEXT_LENGTH ? truncateWithEllipsis(rawText, MAX_TEXT_LENGTH) : rawText;
       let tokens: KakaoTokens | null = loadTokens(tokenFile);
       if (!tokens) throw new Error('카카오 토큰이 없습니다. npm run kakao:auth 를 먼저 실행하세요.');
 

@@ -19,7 +19,7 @@ export interface WatchDeps {
   spec: SearchSpec; topN: number; minRemainingSearches: number;
   log(msg: string): void;
 }
-export type CycleResult = 'notified' | 'unchanged' | 'limit' | 'recovered' | 'relogin' | 'failed';
+export type CycleResult = 'notified' | 'unchanged' | 'limit' | 'recovered' | 'relogin' | 'failed' | 'notify-failed';
 export interface LoopStatus { consecutiveFailures: number }
 export const FAILURE_ALERT_AT = 3;
 
@@ -29,11 +29,13 @@ export function localDateString(d: Date): string {
   return `${d.getFullYear()}-${mm}-${dd}`;
 }
 
-async function safeNotify(deps: WatchDeps, text: string): Promise<void> {
+async function safeNotify(deps: WatchDeps, text: string): Promise<boolean> {
   try {
     await deps.notify(text);
+    return true;
   } catch (err) {
     deps.log('알림 전송 실패: ' + (err instanceof Error ? err.message : String(err)));
+    return false;
   }
 }
 
@@ -59,12 +61,17 @@ export async function runCycle(deps: WatchDeps, status: LoopStatus): Promise<Cyc
     status.consecutiveFailures = 0;
     if (fp === deps.state.lastFingerprint) return 'unchanged';
 
+    let anySent = false;
     if (top.length === 0) {
-      await safeNotify(deps, formatNoResultsMessage(deps.spec));
+      anySent = await safeNotify(deps, formatNoResultsMessage(deps.spec));
     } else {
       for (const [i, l] of top.entries()) {
-        await safeNotify(deps, formatListingMessage(l, i + 1, top.length));
+        if (await safeNotify(deps, formatListingMessage(l, i + 1, top.length))) anySent = true;
       }
+    }
+    if (!anySent) {
+      deps.log('알림 전송에 모두 실패해 이번 결과를 저장하지 않습니다');
+      return 'notify-failed';
     }
     update(deps, { lastFingerprint: fp, lastResultCount: top.length });
     return 'notified';
@@ -91,9 +98,9 @@ export function startLoop(deps: WatchDeps, intervalMs: number): { stop(): void }
     running = true;
     try {
       const result = await runCycle(deps, status);
-      deps.log(`[${deps.now().toISOString()}] 주기 결과: ${result}`);
+      deps.log(`주기 결과: ${result}`);
     } catch (err) {
-      deps.log(`[${deps.now().toISOString()}] 주기 오류: ${String(err)}`);
+      deps.log(`주기 오류: ${String(err)}`);
     } finally {
       running = false;
     }
