@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { AUCTION_ORIGIN, launchAuctionBrowser, type ApiResult } from '../nexon/browser.js';
+import { API_BASE, AUCTION_ORIGIN, launchAuctionBrowser, type ApiResult } from '../nexon/browser.js';
 
 const dataDir = path.resolve(process.cwd(), 'data');
 const profileDir = path.join(dataDir, 'browser-profile');
@@ -22,12 +22,16 @@ function toList(data: unknown): unknown[] | null {
   if (isRecord(data)) {
     if (Array.isArray(data.worlds)) return data.worlds;
     if (Array.isArray(data.gameWorlds)) return data.gameWorlds;
+    if (Array.isArray(data.accounts)) return data.accounts;
+    if (Array.isArray(data.characters)) return data.characters;
+    const keys = Object.keys(data);
+    if (keys.length === 1 && Array.isArray(data[keys[0]])) return data[keys[0]] as unknown[];
   }
   return null;
 }
 
 /** 목록 첫 항목에서 id를 꺼낸다. 형태를 모르므로 본 키를 로그로 남긴다. */
-function firstId(label: string, data: unknown, primaryKey: string): string | null {
+function firstId(label: string, data: unknown, idKeys: string[]): string | null {
   const list = toList(data);
   if (!list || list.length === 0) {
     console.warn(`경고: ${label} 응답이 비어 있거나 목록 형태가 아닙니다. 저장된 샘플을 확인해 주세요.`);
@@ -39,12 +43,16 @@ function firstId(label: string, data: unknown, primaryKey: string): string | nul
     return null;
   }
   console.log(`${label} 첫 항목의 키: ${Object.keys(first).join(', ')}`);
-  const id = first[primaryKey] ?? first.id;
-  if (typeof id !== 'string' && typeof id !== 'number') {
-    console.warn(`경고: ${label} 첫 항목에서 ${primaryKey}/id를 찾지 못했습니다.`);
-    return null;
+  for (const key of idKeys) {
+    const id = first[key];
+    if (typeof id === 'string' || typeof id === 'number') return String(id);
   }
-  return String(id);
+  console.warn(`경고: ${label} 첫 항목에서 ${idKeys.join('/')}를 찾지 못했습니다.`);
+  return null;
+}
+
+function is2xx(status: number): boolean {
+  return status >= 200 && status < 300;
 }
 
 function printChecklist(items: Array<[string, boolean]>): boolean {
@@ -57,6 +65,24 @@ async function main(): Promise<number> {
   fs.mkdirSync(samplesDir, { recursive: true });
   const browser = await launchAuctionBrowser(profileDir, {
     onApiResponse: (line) => console.log(line),
+  });
+  const passiveRoutes: Array<[RegExp, string]> = [
+    [/^\/v1\/accounts$/, 'app-accounts'],
+    [/^\/v1\/accounts\/\d+\/gameWorlds$/, 'app-game-worlds'],
+    [/^\/v1\/accounts\/\d+\/gameWorlds\/\d+\/characters$/, 'app-characters'],
+  ];
+  browser.page.on('response', (res) => {
+    void (async () => {
+      try {
+        if (!res.url().startsWith(API_BASE) || res.request().method() !== 'GET') return;
+        const pathname = new URL(res.url()).pathname;
+        const hit = passiveRoutes.find(([re]) => re.test(pathname));
+        if (!hit) return;
+        save(hit[1], { status: res.status(), data: await res.json().catch(() => null) });
+      } catch {
+        // 수동 캡처는 실패해도 본 흐름에 영향을 주지 않는다.
+      }
+    })();
   });
   try {
     let sessionOk = await browser.waitForSession(20000);
@@ -86,11 +112,11 @@ async function main(): Promise<number> {
     save('accounts', accounts);
     save('headers', browser.apiHeaders());
 
-    const accountId = firstId('계정', accounts.data, 'accountId');
+    const accountId = firstId('계정', accounts.data, ['accountId', 'id']);
     if (accountId) {
       const worlds = await browser.apiFetch<unknown>('GET', `/v1/accounts/${accountId}/gameWorlds`);
       save('game-worlds', worlds);
-      const worldId = firstId('월드', worlds.data, 'worldId');
+      const worldId = firstId('월드', worlds.data, ['gameWorldId', 'worldId', 'id']);
       if (worldId) {
         const characters = await browser.apiFetch<unknown>(
           'GET',
@@ -124,7 +150,11 @@ async function main(): Promise<number> {
     try {
       const parsed: unknown = JSON.parse(rawBody ?? 'null');
       save('search-request', parsed);
-      if (isRecord(parsed) && parsed.keyword !== undefined) keywordLine = String(parsed.keyword);
+      if (isRecord(parsed)) {
+        const nested = isRecord(parsed.filters) ? parsed.filters.keyword : undefined;
+        if (parsed.keyword !== undefined) keywordLine = String(parsed.keyword);
+        else if (nested !== undefined) keywordLine = String(nested);
+      }
     } catch {
       save('search-request', { raw: rawBody });
     }
@@ -138,8 +168,8 @@ async function main(): Promise<number> {
     const allOk = printChecklist([
       ['페이지 열림(403 아님)', true],
       ['세션 OK', sessionOk],
-      ['검색 캡처', searchResult.status === 200 && rawBody !== null],
-      ['최소화 상태 API OK', minimized.status === 200],
+      ['검색 캡처', is2xx(searchResult.status) && rawBody !== null],
+      ['최소화 상태 API OK', is2xx(minimized.status)],
     ]);
     return allOk ? 0 : 1;
   } finally {
