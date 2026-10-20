@@ -17,13 +17,15 @@ type Handler = (method: string, path: string) => Route | undefined;
 
 function fakeBrowser(handler: Handler) {
   const calls: string[] = [];
+  const bodies: unknown[] = [];
   const b = {
-    async apiFetch(method: string, path: string) {
+    async apiFetch(method: string, path: string, body?: unknown) {
       calls.push(`${method} ${path}`);
+      bodies.push(body);
       return handler(method, path) ?? { status: 404, data: null };
     },
   } as unknown as AuctionBrowser;
-  return { b, calls };
+  return { b, calls, bodies };
 }
 
 // 계정 1: 스카니아(캐릭터 5개)+에오스(캐릭터 0개), 계정 2: 에오스 하나(캐릭터 0개)
@@ -65,8 +67,9 @@ describe('getDailyLimit', () => {
 
 describe('searchListings', () => {
   test('201이면 매물을 정규화한다', async () => {
-    const { b, calls } = fakeBrowser(() => ({ status: 201, data: searchResponse }));
+    const { b, calls, bodies } = fakeBrowser(() => ({ status: 201, data: searchResponse }));
     const list = await searchListings(b, { page: 1 });
+    expect(bodies[0]).toEqual({ page: 1 });
     expect(list.length).toBe(5);
     expect(calls[0]).toBe('POST /v1/market/web/items/searches/tool-tip');
   });
@@ -144,5 +147,27 @@ describe('resolveSelection', () => {
   test('중간 요청이 실패하면 toApiError', async () => {
     const { b } = fakeBrowser(() => ({ status: 401, data: null }));
     await expect(resolveSelection(b, { worldName: null, characterName: null })).rejects.toBeInstanceOf(SessionExpiredError);
+  });
+
+  test('월드가 하나도 맞지 않으면 가능한 월드를 알려준다', async () => {
+    const { b } = fakeBrowser(multiAccount);
+    const err = await resolveSelection(b, { worldName: '스카니아아', characterName: null }).catch((e) => e);
+    expect(err).toBeInstanceOf(ApiError);
+    expect(err.status).toBe(0);
+    expect(err.message).toContain('[설정 필요]');
+    expect(err.message).toContain('가능한 월드');
+    expect(err.message).toContain('스카니아');
+  });
+
+  test('id가 없는 계정은 건너뛰고 계속한다', async () => {
+    const { b, calls } = fakeBrowser((method, path) => {
+      if (path === '/v1/accounts') {
+        return { status: 200, data: { accounts: [{ email: 'x' }, ...accounts.accounts] } };
+      }
+      return multiAccount(method, path);
+    });
+    const sel = await resolveSelection(b, { worldName: '스카니아', characterName: '테스트캐릭2' });
+    expect(sel.characterId).toBe(200000002);
+    expect(calls.some((c) => c.includes('NaN') || c.includes('undefined'))).toBe(false);
   });
 });
