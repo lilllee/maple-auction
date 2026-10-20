@@ -35,6 +35,13 @@ export function pickApiHeaders(h: Record<string, string>): Record<string, string
   return picked;
 }
 
+export function mergeCapturedHeaders(
+  prev: Record<string, string>,
+  picked: Record<string, string>,
+): Record<string, string> {
+  return Object.keys(picked).length > 0 ? { ...prev, ...picked } : prev;
+}
+
 async function setWindowState(
   context: BrowserContext,
   page: Page,
@@ -60,8 +67,7 @@ export async function launchAuctionBrowser(profileDir: string): Promise<AuctionB
   let captured: Record<string, string> = {};
   page.on('request', (request: Request) => {
     if (!isApiRequest(request.url())) return;
-    const picked = pickApiHeaders(request.headers());
-    if (Object.keys(picked).length > 0) captured = picked;
+    captured = mergeCapturedHeaders(captured, pickApiHeaders(request.headers()));
   });
 
   const waitSessionResponse = (timeout: number): Promise<Response> =>
@@ -97,7 +103,10 @@ export async function launchAuctionBrowser(profileDir: string): Promise<AuctionB
       let pending = waitSessionResponse(timeoutMs);
       pending.catch(() => undefined); // goto 실패 시 unhandled rejection 방지
       try {
-        await page.goto(AUCTION_ORIGIN + '/buy', { waitUntil: 'domcontentloaded' });
+        await page.goto(AUCTION_ORIGIN + '/buy', {
+          waitUntil: 'domcontentloaded',
+          timeout: timeoutMs,
+        });
         for (;;) {
           const res = await pending;
           if (res.status() === 200) return true;
