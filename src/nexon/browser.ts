@@ -1,10 +1,11 @@
 import { chromium, errors } from 'playwright';
-import type { BrowserContext, Page, Request, Response } from 'playwright';
+import type { BrowserContext, Page, Request } from 'playwright';
 
 export const AUCTION_ORIGIN = 'https://auction.maplestory.nexon.com';
 export const API_BASE = 'https://api.mskr.nexon.com';
 
-const SESSION_PATH = '/v1/auth/web-token/session';
+export const SESSION_READY_PATH = '/v1/market/web/daily-limit';
+export const SESSION_POLL_MS = 5000;
 const API_HEADER_NAMES = ['x-device-id', 'x-platform', 'x-client-version'] as const;
 
 export interface ApiResult<T> {
@@ -20,6 +21,10 @@ export interface AuctionBrowser {
   minimize(): Promise<void>;
   restore(): Promise<void>;
   close(): Promise<void>;
+}
+
+export function isSessionReadyStatus(status: number): boolean {
+  return status >= 200 && status <= 299;
 }
 
 export function isApiRequest(url: string): boolean {
@@ -56,7 +61,14 @@ async function setWindowState(
   }
 }
 
-export async function launchAuctionBrowser(profileDir: string): Promise<AuctionBrowser> {
+export interface LaunchOptions {
+  onApiResponse?: (line: string) => void;
+}
+
+export async function launchAuctionBrowser(
+  profileDir: string,
+  opts?: LaunchOptions,
+): Promise<AuctionBrowser> {
   const context = await chromium.launchPersistentContext(profileDir, {
     headless: false,
     viewport: null,
@@ -70,14 +82,15 @@ export async function launchAuctionBrowser(profileDir: string): Promise<AuctionB
     captured = mergeCapturedHeaders(captured, pickApiHeaders(request.headers()));
   });
 
-  const waitSessionResponse = (timeout: number): Promise<Response> =>
-    page.waitForResponse((r) => r.url().includes(SESSION_PATH), { timeout });
+  const onApiResponse = opts?.onApiResponse;
+  if (onApiResponse) {
+    page.on('response', (res) => {
+      if (!isApiRequest(res.url())) return;
+      onApiResponse(`[api] ${res.request().method()} ${new URL(res.url()).pathname} -> ${res.status()}`);
+    });
+  }
 
-  return {
-    page,
-    apiHeaders: () => ({ ...captured }),
-
-    async apiFetch<T>(method: 'GET' | 'POST', path: string, body?: unknown): Promise<ApiResult<T>> {
+  async function apiFetch<T>(method: 'GET' | 'POST', path: string, body?: unknown): Promise<ApiResult<T>> {
       if (Object.keys(captured).length === 0) {
         throw new Error('API 헤더를 아직 캡처하지 못했습니다. 옥션 페이지가 열렸는지 확인하세요.');
       }
@@ -96,26 +109,37 @@ export async function launchAuctionBrowser(profileDir: string): Promise<AuctionB
         });
         return { status: res.status, data: await res.json().catch(() => null) };
       }, arg) as Promise<ApiResult<T>>;
-    },
+  }
+
+  return {
+    page,
+    apiHeaders: () => ({ ...captured }),
+    apiFetch,
 
     async waitForSession(timeoutMs: number): Promise<boolean> {
-      // 응답을 놓치지 않도록 goto 전에 대기 프라미스를 먼저 만든다.
-      let pending = waitSessionResponse(timeoutMs);
-      pending.catch(() => undefined); // goto 실패 시 unhandled rejection 방지
+      const start = Date.now();
+      const deadline = timeoutMs > 0 ? start + timeoutMs : Infinity;
       try {
         await page.goto(AUCTION_ORIGIN + '/buy', {
           waitUntil: 'domcontentloaded',
           timeout: timeoutMs,
         });
-        for (;;) {
-          const res = await pending;
-          if (res.status() === 200) return true;
-          pending = waitSessionResponse(timeoutMs);
-          pending.catch(() => undefined);
-        }
       } catch (e) {
         if (e instanceof errors.TimeoutError) return false;
         throw e;
+      }
+      for (;;) {
+        try {
+          if (new URL(page.url()).origin === AUCTION_ORIGIN && Object.keys(captured).length > 0) {
+            const res = await apiFetch('GET', SESSION_READY_PATH);
+            if (isSessionReadyStatus(res.status)) return true;
+          }
+        } catch {
+          // 페이지 이동 중이거나 헤더 미캡처 등: 계속 폴링한다.
+        }
+        const remaining = deadline - Date.now();
+        if (remaining <= 0) return false;
+        await new Promise((r) => setTimeout(r, Math.min(SESSION_POLL_MS, remaining)));
       }
     },
 

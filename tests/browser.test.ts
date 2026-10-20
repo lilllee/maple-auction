@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { isApiRequest, mergeCapturedHeaders, pickApiHeaders } from '../src/nexon/browser.js';
+import { isApiRequest, isSessionReadyStatus, mergeCapturedHeaders, pickApiHeaders } from '../src/nexon/browser.js';
 
 describe('browser pure functions', () => {
   test('isApiRequest', () => {
@@ -27,5 +27,11 @@ describe('browser pure functions', () => {
       'x-client-version': '1.0.2',
     });
     expect(mergeCapturedHeaders(prev, {})).toEqual(prev);
+  });
+
+  test('isSessionReadyStatus는 2xx만 true', () => {
+    expect(isSessionReadyStatus(200)).toBe(true);
+    expect(isSessionReadyStatus(204)).toBe(true);
+    for (const st of [401, 426, 500]) expect(isSessionReadyStatus(st)).toBe(false);
   });
 });
