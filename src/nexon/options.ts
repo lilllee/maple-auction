@@ -106,3 +106,19 @@ export function findWorldId(name: string): number | null {
   const key = normalizeLabel(name);
   return WORLDS.find((w) => w.name === key)?.id ?? null;
 }
+
+export type ItemCategoryCode = 'ARMOR' | 'WEAPON';
+
+export const ITEM_CATEGORIES: readonly { label: string; code: ItemCategoryCode }[] = [
+  { label: '방어구', code: 'ARMOR' },
+  { label: '무기', code: 'WEAPON' },
+];
+
+export function findItemCategoryCode(label: string): ItemCategoryCode | null {
+  const key = normalizeLabel(label);
+  return ITEM_CATEGORIES.find((c) => c.label === key)?.code ?? null;
+}
+
+export const GRADE_NUMBERS: Record<Exclude<GradeCode, 'all'>, number> = {
+  none: 0, rare: 1, epic: 2, unique: 3, legendary: 4,
+};

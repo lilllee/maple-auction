@@ -4,19 +4,22 @@ import dotenv from 'dotenv';
 import {
   ADDITIONAL_POTENTIAL_OPTIONS,
   GRADES,
+  ITEM_CATEGORIES,
   POTENTIAL_OPTIONS,
   WORLDS,
   findGradeCode,
+  findItemCategoryCode,
   findOptionCode,
   findWorldId,
   normalizeLabel,
   type GradeCode,
+  type ItemCategoryCode,
   type OptionEntry,
 } from './nexon/options.js';
 
 export interface OptionRow { code: string; label: string; min: number }
 export interface SearchSpec {
-  itemName: string; exactMatch: boolean;
+  itemName: string; exactMatch: boolean; itemCategory: ItemCategoryCode;
   potentialGrade: GradeCode; potentialSum: boolean; potentialOptions: OptionRow[];
   additionalPotentialGrade: GradeCode; additionalPotentialSum: boolean; additionalPotentialOptions: OptionRow[];
   starforceMin: number | null; starforceMax: number | null; priceMax: number | null;
@@ -94,6 +97,15 @@ function gradeOr(env: Env, key: string): GradeCode {
   );
 }
 
+function categoryOr(env: Env, key: string): ItemCategoryCode {
+  const raw = optional(env, key);
+  if (raw === null) return 'ARMOR';
+  return (
+    findItemCategoryCode(raw) ??
+    fail(key, `'${raw}'은(는) 모르는 분류입니다. 가능한 값: ${ITEM_CATEGORIES.map((c) => c.label).join(', ')}`)
+  );
+}
+
 export function parseOptionRows(raw: string, table: readonly OptionEntry[], key = 'POTENTIAL_OPTIONS'): OptionRow[] {
   const rows: OptionRow[] = [];
   for (const part of raw.split(',')) {
@@ -120,6 +132,7 @@ export function loadConfig(env: Env): AppConfig {
   const search: SearchSpec = {
     itemName: required(env, 'ITEM_NAME'),
     exactMatch: boolOr(env, 'ITEM_EXACT_MATCH', true),
+    itemCategory: categoryOr(env, 'ITEM_CATEGORY'),
     potentialGrade: gradeOr(env, 'POTENTIAL_GRADE'),
     potentialSum: boolOr(env, 'POTENTIAL_SUM', false),
     potentialOptions: parseOptionRows(optional(env, 'POTENTIAL_OPTIONS') ?? '', POTENTIAL_OPTIONS, 'POTENTIAL_OPTIONS'),

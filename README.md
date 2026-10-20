@@ -40,6 +40,7 @@ copy .env.example .env
 ```
 
    - `ITEM_NAME`, `POTENTIAL_OPTIONS` 같은 옵션 라벨은 옥션 화면에 보이는 이름을 그대로 적습니다. 예: `스킬 재사용 대기시간 감소:2, STR %증가:9`
+   - `ITEM_CATEGORY`는 `방어구` 또는 `무기`입니다. 장신구·모자 등은 방어구로 적습니다. 비우면 `방어구`입니다.
    - 옵션 값(예: `STR %증가:9`)과 `STARFORCE_MIN`은 "이상" 조건입니다. `STARFORCE_MAX`와 `PRICE_MAX`는 "이하" 상한입니다.
    - `WORLD_NAME`과 `CHARACTER_NAME`은 계정에 월드나 캐릭터가 하나뿐일 때만 비워 둘 수 있습니다.
    - `KAKAO_REST_API_KEY`에는 4단계에서 복사한 REST API 키를 넣습니다.

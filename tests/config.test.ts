@@ -93,3 +93,14 @@ test('CRLF, BOM, 앞뒤 공백이 있는 .env 파일을 읽는다', () => {
 test('없는 .env 파일이면 ConfigError', () => {
   expect(() => readEnvFile(path.join(os.tmpdir(), 'no-such-env-file'))).toThrow(ConfigError);
 });
+
+test('ITEM_CATEGORY: 무기는 WEAPON, 비면 ARMOR', () => {
+  expect(loadConfig({ ...base, ITEM_CATEGORY: '무기' }).search.itemCategory).toBe('WEAPON');
+  expect(loadConfig({ ...base, ITEM_CATEGORY: '' }).search.itemCategory).toBe('ARMOR');
+  expect(loadConfig(base).search.itemCategory).toBe('ARMOR');
+});
+
+test('ITEM_CATEGORY: 모르는 분류는 ConfigError', () => {
+  expect(() => loadConfig({ ...base, ITEM_CATEGORY: '장신구' })).toThrow(ConfigError);
+  expect(() => loadConfig({ ...base, ITEM_CATEGORY: '장신구' })).toThrow('가능한 값');
+});

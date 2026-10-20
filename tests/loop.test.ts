@@ -9,7 +9,7 @@ import { FAILURE_ALERT_AT, localDateString, runCycle, startLoop, type LoopStatus
 import { EMPTY_STATE } from '../src/watch/state.js';
 
 const SPEC: SearchSpec = {
-  itemName: '에테르넬 나이트헬름', exactMatch: true,
+  itemName: '에테르넬 나이트헬름', exactMatch: true, itemCategory: 'ARMOR',
   potentialGrade: 'all', potentialSum: false, potentialOptions: [],
   additionalPotentialGrade: 'all', additionalPotentialSum: false, additionalPotentialOptions: [],
   starforceMin: null, starforceMax: null, priceMax: null,
