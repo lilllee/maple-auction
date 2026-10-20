@@ -17,7 +17,7 @@ export interface AuctionBrowser {
   page: Page;
   apiHeaders(): Record<string, string>;
   apiFetch<T>(method: 'GET' | 'POST', path: string, body?: unknown): Promise<ApiResult<T>>;
-  waitForSession(timeoutMs: number): Promise<boolean>;
+  waitForSession(timeoutMs: number, opts?: { navigate?: boolean }): Promise<boolean>;
   minimize(): Promise<void>;
   restore(): Promise<void>;
   close(): Promise<void>;
@@ -90,25 +90,30 @@ export async function launchAuctionBrowser(
     });
   }
 
-  async function apiFetch<T>(method: 'GET' | 'POST', path: string, body?: unknown): Promise<ApiResult<T>> {
-      if (Object.keys(captured).length === 0) {
-        throw new Error('API 헤더를 아직 캡처하지 못했습니다. 옥션 페이지가 열렸는지 확인하세요.');
-      }
-      const arg = {
-        url: API_BASE + path,
-        method,
-        headers: { ...captured },
-        body: body === undefined ? undefined : JSON.stringify(body),
-      };
-      return page.evaluate(async (a) => {
-        const res = await fetch(a.url, {
-          method: a.method,
-          headers: { ...a.headers, 'content-type': 'application/json' },
-          body: a.body,
-          credentials: 'include',
-        });
-        return { status: res.status, data: await res.json().catch(() => null) };
-      }, arg) as Promise<ApiResult<T>>;
+  async function apiFetch<T>(
+    method: 'GET' | 'POST',
+    path: string,
+    body?: unknown,
+  ): Promise<ApiResult<T>> {
+    if (Object.keys(captured).length === 0) {
+      throw new Error('API 헤더를 아직 캡처하지 못했습니다. 옥션 페이지가 열렸는지 확인하세요.');
+    }
+    const arg = {
+      url: API_BASE + path,
+      method,
+      headers: { ...captured },
+      body: body === undefined ? undefined : JSON.stringify(body),
+    };
+    return page.evaluate(async (a) => {
+      const res = await fetch(a.url, {
+        method: a.method,
+        headers: { ...a.headers, 'content-type': 'application/json' },
+        body: a.body,
+        credentials: 'include',
+        signal: AbortSignal.timeout(15000),
+      });
+      return { status: res.status, data: await res.json().catch(() => null) };
+    }, arg) as Promise<ApiResult<T>>;
   }
 
   return {
@@ -116,19 +121,22 @@ export async function launchAuctionBrowser(
     apiHeaders: () => ({ ...captured }),
     apiFetch,
 
-    async waitForSession(timeoutMs: number): Promise<boolean> {
+    async waitForSession(timeoutMs: number, opts?: { navigate?: boolean }): Promise<boolean> {
       const start = Date.now();
       const deadline = timeoutMs > 0 ? start + timeoutMs : Infinity;
-      try {
-        await page.goto(AUCTION_ORIGIN + '/buy', {
-          waitUntil: 'domcontentloaded',
-          timeout: timeoutMs,
-        });
-      } catch (e) {
-        if (e instanceof errors.TimeoutError) return false;
-        throw e;
+      if (opts?.navigate ?? true) {
+        try {
+          await page.goto(AUCTION_ORIGIN + '/buy', {
+            waitUntil: 'domcontentloaded',
+            timeout: timeoutMs,
+          });
+        } catch (e) {
+          if (e instanceof errors.TimeoutError) return false;
+          throw e;
+        }
       }
       for (;;) {
+        if (page.isClosed()) return false;
         try {
           if (new URL(page.url()).origin === AUCTION_ORIGIN && Object.keys(captured).length > 0) {
             const res = await apiFetch('GET', SESSION_READY_PATH);

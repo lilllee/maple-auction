@@ -76,7 +76,7 @@ async function main(): Promise<number> {
     if (!sessionOk) {
       console.log('브라우저 창에서 넥슨 로그인(OTP)을 끝내 주세요. 끝나면 자동으로 이어집니다.');
       console.log('세션 확인 중... (브라우저 창에서 로그인/OTP를 끝내면 자동으로 이어집니다)');
-      sessionOk = await browser.waitForSession(0);
+      sessionOk = await browser.waitForSession(0, { navigate: false });
     }
 
     // 계정/월드/캐릭터 조회
