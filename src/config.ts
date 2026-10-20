@@ -58,14 +58,22 @@ function parsePositive(key: string, raw: string): number {
   return n;
 }
 
-function numberOr(env: Env, key: string, fallback: number): number {
-  const raw = optional(env, key);
-  return raw === null ? fallback : parsePositive(key, raw);
+function parseInteger(key: string, raw: string, allowZero: boolean): number {
+  const n = Number(raw);
+  if (!Number.isInteger(n) || n < 0 || (!allowZero && n === 0)) {
+    fail(key, `'${raw}'은(는) ${allowZero ? '0 이상' : '1 이상'}의 정수가 아닙니다.`);
+  }
+  return n;
 }
 
-function numberOrNull(env: Env, key: string): number | null {
+function intOr(env: Env, key: string, fallback: number, allowZero = false): number {
   const raw = optional(env, key);
-  return raw === null ? null : parsePositive(key, raw);
+  return raw === null ? fallback : parseInteger(key, raw, allowZero);
+}
+
+function intOrNull(env: Env, key: string, allowZero = false): number | null {
+  const raw = optional(env, key);
+  return raw === null ? null : parseInteger(key, raw, allowZero);
 }
 
 function boolOr(env: Env, key: string, fallback: boolean): boolean {
@@ -122,22 +130,22 @@ export function loadConfig(env: Env): AppConfig {
       ADDITIONAL_POTENTIAL_OPTIONS,
       'ADDITIONAL_POTENTIAL_OPTIONS',
     ),
-    starforceMin: numberOrNull(env, 'STARFORCE_MIN'),
-    starforceMax: numberOrNull(env, 'STARFORCE_MAX'),
-    priceMax: numberOrNull(env, 'PRICE_MAX'),
+    starforceMin: intOrNull(env, 'STARFORCE_MIN', true),
+    starforceMax: intOrNull(env, 'STARFORCE_MAX', true),
+    priceMax: intOrNull(env, 'PRICE_MAX'),
   };
 
   return {
     search,
     worldName,
     characterName: optional(env, 'CHARACTER_NAME'),
-    intervalMinutes: numberOr(env, 'INTERVAL_MINUTES', 15),
-    topN: numberOr(env, 'TOP_N', 3),
-    minRemainingSearches: numberOr(env, 'MIN_REMAINING_SEARCHES', 10),
+    intervalMinutes: intOr(env, 'INTERVAL_MINUTES', 15),
+    topN: intOr(env, 'TOP_N', 3),
+    minRemainingSearches: intOr(env, 'MIN_REMAINING_SEARCHES', 10, true),
     kakao: {
       restApiKey: required(env, 'KAKAO_REST_API_KEY'),
       clientSecret: optional(env, 'KAKAO_CLIENT_SECRET'),
-      redirectPort: numberOr(env, 'KAKAO_REDIRECT_PORT', 3131),
+      redirectPort: intOr(env, 'KAKAO_REDIRECT_PORT', 3131),
     },
     dataDir: path.resolve(process.cwd(), 'data'),
   };

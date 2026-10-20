@@ -63,6 +63,16 @@ test('에디셔널과 선택 값을 파싱한다', () => {
   expect(c.kakao.clientSecret).toBe('s');
 });
 
+test('0을 허용하는 값과 정수 규칙', () => {
+  const c = loadConfig({ ...base, STARFORCE_MIN: '0', MIN_REMAINING_SEARCHES: '0' });
+  expect(c.search.starforceMin).toBe(0);
+  expect(c.minRemainingSearches).toBe(0);
+  expect(() => loadConfig({ ...base, TOP_N: '2.5' })).toThrow(ConfigError);
+  expect(() => loadConfig({ ...base, TOP_N: '0' })).toThrow(ConfigError);
+  expect(() => loadConfig({ ...base, INTERVAL_MINUTES: '-1' })).toThrow(/\[설정 오류\] INTERVAL_MINUTES/);
+  expect(() => loadConfig({ ...base, PRICE_MAX: '1.5' })).toThrow(ConfigError);
+});
+
 test('모르는 등급과 월드는 ConfigError', () => {
   expect(() => loadConfig({ ...base, POTENTIAL_GRADE: '신화' })).toThrow(/신화/);
   expect(() => loadConfig({ ...base, WORLD_NAME: '없는월드' })).toThrow(ConfigError);
