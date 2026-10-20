@@ -1,0 +1,28 @@
+{
+  "name": "maple-auction",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=18.18"
+  },
+  "scripts": {
+    "start": "tsx src/cli/start.ts",
+    "spike": "tsx src/cli/spike.ts",
+    "search:once": "tsx src/cli/search-once.ts",
+    "kakao:auth": "tsx src/cli/kakao-auth.ts",
+    "kakao:test": "tsx src/cli/kakao-test.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "playwright": "^1.64.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.130",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.7"
+  }
+}
