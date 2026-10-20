@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { launchAuctionBrowser, type ApiResult } from '../nexon/browser.js';
+import { AUCTION_ORIGIN, launchAuctionBrowser, type ApiResult } from '../nexon/browser.js';
 
 const dataDir = path.resolve(process.cwd(), 'data');
 const profileDir = path.join(dataDir, 'browser-profile');
@@ -59,8 +59,10 @@ async function main(): Promise<number> {
   try {
     let sessionOk = await browser.waitForSession(20000);
     const title = await browser.page.title();
-    if (title !== 'Maple Auction') {
-      console.error(`옥션 페이지 대신 차단/오류 페이지가 열렸습니다 (제목: ${title})`);
+    const onAuctionOrigin = new URL(browser.page.url()).origin === AUCTION_ORIGIN;
+    const hasRoot = (await browser.page.locator('#root').count()) > 0;
+    if (onAuctionOrigin && !hasRoot) {
+      console.error(`옥션 페이지 대신 차단/오류 페이지가 열렸습니다 (제목: ${title}, 주소: ${browser.page.url()})`);
       printChecklist([
         ['페이지 열림(403 아님)', false],
         ['세션 OK', false],
@@ -98,19 +100,32 @@ async function main(): Promise<number> {
     // 검색 캡처
     await browser.restore();
     const searchPromise = browser.page.waitForResponse(
-      (r) => r.url().endsWith(SEARCH_URL_SUFFIX) && r.request().method() === 'POST',
+      (r) => {
+        if (!r.url().endsWith(SEARCH_URL_SUFFIX) || r.request().method() !== 'POST') return false;
+        const body = r.request().postData();
+        return typeof body === 'string' && body.includes('에테르넬 나이트헬름');
+      },
       { timeout: 0 },
     );
     console.log(
       '이제 브라우저에서 조건검색 탭에 .env.example과 똑같은 조건(에테르넬 나이트헬름, 레전드리, 합산, 스킬 재사용 대기시간 감소 2, STR %증가 9, 가격 낮은 순)을 넣고 검색을 한 번 눌러 주세요.',
     );
     const response = await searchPromise;
-    save('search-request', JSON.parse(response.request().postData() ?? 'null'));
     const searchResult: ApiResult<unknown> = {
       status: response.status(),
       data: await response.json().catch(() => null),
     };
     save('search-response', searchResult);
+    const rawBody = response.request().postData();
+    let keywordLine = (rawBody ?? '').slice(0, 80);
+    try {
+      const parsed: unknown = JSON.parse(rawBody ?? 'null');
+      save('search-request', parsed);
+      if (isRecord(parsed) && parsed.keyword !== undefined) keywordLine = String(parsed.keyword);
+    } catch {
+      save('search-request', { raw: rawBody });
+    }
+    console.log(`캡처한 검색어: ${keywordLine}`);
 
     // 최소화 상태 확인
     await browser.minimize();
@@ -120,19 +135,21 @@ async function main(): Promise<number> {
     const allOk = printChecklist([
       ['페이지 열림(403 아님)', true],
       ['세션 OK', sessionOk],
-      ['검색 캡처', searchResult.status === 200],
+      ['검색 캡처', searchResult.status === 200 && rawBody !== null],
       ['최소화 상태 API OK', minimized.status === 200],
     ]);
     return allOk ? 0 : 1;
   } finally {
-    await browser.close();
+    await browser.close().catch(() => undefined);
   }
 }
 
 main().then(
-  (code) => process.exit(code),
+  (code) => {
+    process.exitCode = code;
+  },
   (err: unknown) => {
     console.error(`오류: ${err instanceof Error ? err.message : String(err)}`);
-    process.exit(1);
+    process.exitCode = 1;
   },
 );
