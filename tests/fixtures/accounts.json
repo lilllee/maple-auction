@@ -1,0 +1,12 @@
+{
+  "accounts": [
+    {
+      "accountId": 100000001,
+      "email": "maple1"
+    },
+    {
+      "accountId": 100000002,
+      "email": "maple2"
+    }
+  ]
+}

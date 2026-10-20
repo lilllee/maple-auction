@@ -1,0 +1,10 @@
+{
+  "search": {
+    "limit": 100,
+    "remaining": 98
+  },
+  "register": {
+    "limit": 20,
+    "remaining": 20
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "characters": [
+    {
+      "characterId": 200000001,
+      "order": 0,
+      "characterName": "테스트캐릭1",
+      "level": 150,
+      "mainView": null,
+      "subView": null,
+      "job": "키네시스",
+      "attackPower": 0,
+      "tradeUnavailableReason": 6
+    },
+    {
+      "characterId": 200000002,
+      "order": 1,
+      "characterName": "테스트캐릭2",
+      "level": 200,
+      "mainView": null,
+      "subView": null,
+      "job": "아크",
+      "attackPower": 0,
+      "tradeUnavailableReason": null
+    },
+    {
+      "characterId": 200000003,
+      "order": 2,
+      "characterName": "테스트캐릭3",
+      "level": 200,
+      "mainView": null,
+      "subView": null,
+      "job": "패스파인더",
+      "attackPower": 0,
+      "tradeUnavailableReason": null
+    },
+    {
+      "characterId": 200000004,
+      "order": 3,
+      "characterName": "테스트캐릭4",
+      "level": 202,
+      "mainView": null,
+      "subView": null,
+      "job": "아델",
+      "attackPower": 0,
+      "tradeUnavailableReason": null
+    },
+    {
+      "characterId": 200000005,
+      "order": 4,
+      "characterName": "테스트캐릭5",
+      "level": 201,
+      "mainView": null,
+      "subView": null,
+      "job": "소울마스터",
+      "attackPower": 0,
+      "tradeUnavailableReason": null
+    }
+  ]
+}

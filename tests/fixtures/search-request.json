@@ -1,0 +1,23 @@
+{
+  "worldId": 0,
+  "accountId": 100000002,
+  "page": 1,
+  "limit": 20,
+  "sortType": "PRICE_PER_ITEM_ASC",
+  "filters": {
+    "keyword": "에테르넬 나이트헬름",
+    "exactMatch": true,
+    "itemCategory": {
+      "itemDetailCategory": "ARMOR"
+    },
+    "enhancementOption": {
+      "potentialGrade": 4,
+      "potentialOptionSum": {
+        "skillCooldownReduction": 2,
+        "strPercent": 9
+      }
+    }
+  },
+  "saveRecentKeyword": false,
+  "characterId": 200000002
+}

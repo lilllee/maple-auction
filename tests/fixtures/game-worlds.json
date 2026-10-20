@@ -1,0 +1,13 @@
+{
+  "gameWorlds": [
+    {
+      "gameWorldId": 0,
+      "gameWorldName": "스카니아"
+    },
+    {
+      "gameWorldId": 45,
+      "gameWorldName": "에오스"
+    }
+  ],
+  "defaultGameWorldId": 0
+}

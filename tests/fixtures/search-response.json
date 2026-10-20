@@ -1,0 +1,2773 @@
+{
+  "items": [
+    {
+      "_id": "iMXEzYdkpaHzce204GcFKNkGh0a1BvuTE5jzXPMjZzU:1",
+      "tradeSn": "iMXEzYdkpaHzce204GcFKNkGh0a1BvuTE5jzXPMjZzU",
+      "subIdx": 1,
+      "isMyWorld": true,
+      "itemIcon": {
+        "fallBackUrl": "https://avatar.maplestory.nexon.com/ItemIcon/KEPCOOGB.png",
+        "encryptedLookItemId": "ca8fcfb235d8aabc875850c4e991f230"
+      },
+      "encryptedItemId": "ca8fcfb235d8aabc875850c4e991f230",
+      "itemName": "에테르넬 나이트헬름",
+      "toolTipType": 4,
+      "bundleLabel": null,
+      "isAccountSharableAfterExchange": false,
+      "isCash": false,
+      "gender": "NONE",
+      "itemCode": "Cq8BClgKEghsEGwYHCAcMKwbOApI7gVYBBAMIDhA////////////AVgIYP///////////wGIAQ+gAQmwAYAiugETMTkwMC0wMS0wMSAwMDowMDowMMgB06egh9MFEhUIBBjtvP7///////8BIN7qASjZ6gEaAiIAIgAqADIAOgBCAEoCCgBSGQicsz0aEzIwNzktMDEtMDEgMDA6MDA6MDBoisaKhbDLgYAIegCCAQISAA==",
+      "currentUpgradeCount": 0,
+      "starforce": 0,
+      "seedRingLevel": 0,
+      "royalSpecialType": 0,
+      "eventLabel": null,
+      "limitedLabel": null,
+      "illusionRingGrade": null,
+      "petGrade": 0,
+      "isLookChange": false,
+      "quantity": 1,
+      "price": "3400000000",
+      "pricePerItem": "3400000000",
+      "wishlistCount": 0,
+      "endDate": "2026-10-22T07:50:31.847Z",
+      "status": "ON_SALE",
+      "tradeDate": null,
+      "isMyItem": false,
+      "isDrawNumberItem": false,
+      "isTreatSingly": true,
+      "isDrawPricePerUnit": false,
+      "isPreviewable": false,
+      "isBuyAllUnderPrice": false,
+      "isTradeOnceItem": true,
+      "isRechargeableItem": false,
+      "priceDrawType": "Equip",
+      "bundleCount": null,
+      "attackPowerDiff": -7990396,
+      "attackPowerDiffPerSlot": null,
+      "toolTip": {
+        "starforce": 0,
+        "starforceMax": 30,
+        "titleInfo": {
+          "titleType": 0,
+          "title": "",
+          "isMeister": false,
+          "isMasterItem": false
+        },
+        "itemIcon": {
+          "fallBackUrl": "https://avatar.maplestory.nexon.com/ItemIcon/KEPCOOGB.png",
+          "encryptedLookItemId": "ca8fcfb235d8aabc875850c4e991f230"
+        },
+        "isProtected": false,
+        "isProtectedGreenZone": false,
+        "isPermanentlyAttributed": false,
+        "isAmazingHyperUpgradeUsed": false,
+        "vestige": false,
+        "itemName": "에테르넬 나이트헬름",
+        "itemDesc": null,
+        "faceEmotionLook": null,
+        "gradeInfo": {
+          "isSpecialGrade": false,
+          "royalSpecialType": 0,
+          "eventLabel": null,
+          "limitedLabel": null
+        },
+        "cashDesc": [],
+        "tradeDesc": [
+          "1회 교환 가능 (거래 후 교환 불가)",
+          "(가위 사용 잔여 횟수 : 9 / 10)"
+        ],
+        "expireDesc": "",
+        "abilityExpireDesc": [],
+        "attackPower": null,
+        "categories": [
+          "방어구",
+          "모자"
+        ],
+        "lookItem": null,
+        "reqJob": "전사",
+        "unwearableJobNames": [],
+        "reqLevel": 250,
+        "reqGender": null,
+        "androidPreview": null,
+        "androidGrade": null,
+        "setEffects": [
+          "에테르넬 세트(전사)"
+        ],
+        "setItemInfo": {
+          "encryptedSetItemId": "efd8f36de6cd49bc06029536b8528f3f",
+          "setItemName": "에테르넬 세트(전사)",
+          "completeCount": 8,
+          "parts": [
+            {
+              "typeName": "모자",
+              "representName": "에테르넬 나이트헬름",
+              "itemIds": [
+                "ca8fcfb235d8aabc875850c4e991f230"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "상의",
+              "representName": "에테르넬 나이트아머",
+              "itemIds": [
+                "71f102392c9170a0b49305a79303bbcf"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "하의",
+              "representName": "에테르넬 나이트팬츠",
+              "itemIds": [
+                "bd370bf560222512140905818887fe34"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "어깨장식",
+              "representName": "에테르넬 나이트숄더",
+              "itemIds": [
+                "41c3e8d860242a9bf9c4c84dce7aa650"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "장갑",
+              "representName": "에테르넬 나이트글러브",
+              "itemIds": [
+                "16fff00408a77c9311fc7eaf7091332c"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "신발",
+              "representName": "에테르넬 나이트슈즈",
+              "itemIds": [
+                "29e58a49c8565e2940e1c8174277c6d6"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "망토",
+              "representName": "에테르넬 나이트케이프",
+              "itemIds": [
+                "d8b851e92dedebad2430a847ddf6469d"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "무기",
+              "representName": "제네시스 또는 데스티니 무기 중 택1",
+              "itemIds": [
+                "c0d327e981f1f298ace2978ed5a0903c",
+                "b9bdeaaff7edc898edf045e0a4d57cff",
+                "8921293d1517c04b7f047c8c04b38c1d",
+                "1f187741562580e61e4b0f3e75bc5dad",
+                "7b1cc82aafbe4ed0805f319e0eaee602",
+                "a561e2ef115d20c15aafba0e1cc3d58d",
+                "f3c734b6b41f0c17bd2f97914a41fbca",
+                "c87e33d85088ab22ef1083fc93414263",
+                "5a5f429c49008bf513ca095804b84a36",
+                "dbd0cffaadb7b9df390fb9b24d0a30f5",
+                "7aaa99375b80216ff490d5966c66c5db",
+                "18020c0c555dc7568ef09c615b9d73a0",
+                "401cfc37ba5add08f795006e20e6a92b",
+                "04a75926a52c5092ccfc50409542b70c",
+                "3550c4cf7cc7ce696f67ff57f438cb12",
+                "2ba7a05a9c072dfd10083edbf87e7bc9",
+                "30d97336f1b7009a51ad4d9134fea48e",
+                "7c5d003f659af39cbb41b338a488d6bd",
+                "759dcef04e5cffeb8fd1c2299f1fb5e6",
+                "58a1c55fba217d11872ca7dac8f3439e",
+                "9b34b34e31d9c21893975d016daee3a4",
+                "13a619eb472ac3f51e457f9230a0dff2",
+                "19042f8a54208d374b772814114d54a0",
+                "cc2cdb0656fd71a093d85b67e3eaa7ab",
+                "99d0179cedc9c106a7938540dee44e1b",
+                "4d4cab46695fcf6243ffd76ebc2bc3a1",
+                "f7bbad176d7b99dfaf8496f378f1a63a",
+                "242c7cc36ebeebed7954acc488a7bcc2",
+                "5ebcd0f1172d4230128435a6ba13ec30",
+                "0ffc3d8f23dc2d986c909188cb71e7fa",
+                "a29b87b1a9f6a3b13f109570a11ee9ba",
+                "d6afd378e60a5cb7c0b6bad4c020866b",
+                "d42047b9b8fcd245ac31e667f06e1786",
+                "69d7b56750dca37bcff81d5a2fafa789",
+                "086fd6c8cf459046adeec5b07e16f522",
+                "95587090d98d209a1b974d1401304689",
+                "91f8982acdc88021bf978f984d860381",
+                "9b2dad5d6dbc7b0d1e4d1ddc91e340b0",
+                "a013095209d508aed28132de88a340f5",
+                "831af002d0664f48215cfc0d76760827",
+                "a5309e0cb70ce92e9fb40ef2686130b1",
+                "e97a93d709e1ab708099a0113da5920e"
+              ],
+              "memberNames": []
+            }
+          ],
+          "effects": [
+            {
+              "partsCount": 2,
+              "descriptions": [
+                "최대 HP / 최대 MP  +2500",
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +10%"
+              ]
+            },
+            {
+              "partsCount": 3,
+              "descriptions": [
+                "올스탯  +50",
+                "공격력 / 마력  +40",
+                "방어력  +600",
+                "보스 몬스터 데미지 +10%"
+              ]
+            },
+            {
+              "partsCount": 4,
+              "descriptions": [
+                "최대 HP / 최대 MP  +15%",
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +10%"
+              ]
+            },
+            {
+              "partsCount": 5,
+              "descriptions": [
+                "공격력 / 마력  +40",
+                "몬스터 방어율 무시 +20%"
+              ]
+            },
+            {
+              "partsCount": 6,
+              "descriptions": [
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +15%"
+              ]
+            },
+            {
+              "partsCount": 7,
+              "descriptions": [
+                "올스탯  +50, 최대 HP / 최대 MP  +2500",
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +15%"
+              ]
+            },
+            {
+              "partsCount": 8,
+              "descriptions": [
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +15%"
+              ]
+            }
+          ]
+        },
+        "skillNames": null,
+        "seedRingType": 0,
+        "seedRingTotalInfo": null,
+        "seedRingLevel": 0,
+        "attackSpeed": null,
+        "durability": null,
+        "stat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 108,
+          "dex": 108,
+          "int": 28,
+          "luk": 28,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 3500,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 10,
+          "mad": 0,
+          "pdd": 750,
+          "speed": 4,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 15,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "baseStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 80,
+          "dex": 80,
+          "int": 0,
+          "luk": 0,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 10,
+          "mad": 0,
+          "pdd": 750,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 15,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "starforceStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 0,
+          "dex": 0,
+          "int": 0,
+          "luk": 0,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 0,
+          "mad": 0,
+          "pdd": 0,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 0,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "upgradeStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 0,
+          "dex": 0,
+          "int": 0,
+          "luk": 0,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 0,
+          "mad": 0,
+          "pdd": 0,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 0,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "exOptionStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 28,
+          "dex": 28,
+          "int": 28,
+          "luk": 28,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 3500,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 0,
+          "mad": 0,
+          "pdd": 0,
+          "speed": 4,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 0,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "timeLimitedStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 0,
+          "dex": 0,
+          "int": 0,
+          "luk": 0,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 0,
+          "mad": 0,
+          "pdd": 0,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 0,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "cashOptionStat": null,
+        "preventSlip": false,
+        "supportWarm": false,
+        "upgradeInfo": {
+          "disabledSummary": "",
+          "starForce": {
+            "current": 0,
+            "max": 30,
+            "canUpgrade": true,
+            "description": "스타포스 : 없음 (최대 30성)"
+          },
+          "scroll": {
+            "current": 0,
+            "remaining": 12,
+            "failure": 0,
+            "max": 12,
+            "canUpgrade": true,
+            "description": "주문서 강화 없음 (잔여 12회, 복구 가능 0회)"
+          },
+          "exOption": {
+            "sum": 17,
+            "canUpgrade": true,
+            "entries": [
+              {
+                "grade": 5,
+                "text": "최대 MP  +3500"
+              },
+              {
+                "grade": 4,
+                "text": "STR, DEX  +28"
+              },
+              {
+                "grade": 4,
+                "text": "INT, LUK  +28"
+              },
+              {
+                "grade": 4,
+                "text": "이동속도  +4"
+              }
+            ],
+            "description": "추가옵션"
+          },
+          "potential": {
+            "grade": 4,
+            "entries": [
+              {
+                "grade": 4,
+                "text": "스킬 재사용 대기시간 -2초"
+              },
+              {
+                "grade": 3,
+                "text": "최대 MP +10%"
+              },
+              {
+                "grade": 3,
+                "text": "STR +10%"
+              }
+            ],
+            "description": "잠재능력 : 레전드리"
+          },
+          "additionalPotential": {
+            "grade": 0,
+            "entries": [],
+            "description": "에디셔널 잠재능력 : 없음"
+          }
+        },
+        "soulWeapon": null,
+        "exceptionalUpgrade": null,
+        "mvpGrade": null,
+        "attributeInfo": {
+          "descs": [],
+          "itemLimit": null,
+          "seedRingLimit": null
+        },
+        "addition": null,
+        "epicDesc": null,
+        "variableStat": null,
+        "illusionRingGrade": null,
+        "descs": [
+          "#c일부 상황에서는 보이지 않는 아이템입니다.#"
+        ],
+        "growthDescs": [],
+        "specificTargetDescs": [],
+        "prismColorInfo": null,
+        "prismPartName": null,
+        "prismColor": null,
+        "symbolGrowth": null,
+        "normalGrowth": null
+      }
+    },
+    {
+      "_id": "et6_pcnXq5c2A7rDicR-FEZ6coGKb61nQZ-Hm15DchQ:0",
+      "tradeSn": "et6_pcnXq5c2A7rDicR-FEZ6coGKb61nQZ-Hm15DchQ",
+      "subIdx": 0,
+      "isMyWorld": false,
+      "itemIcon": {
+        "fallBackUrl": "https://avatar.maplestory.nexon.com/ItemIcon/KEPCOOGB.png",
+        "encryptedLookItemId": "ca8fcfb235d8aabc875850c4e991f230"
+      },
+      "encryptedItemId": "ca8fcfb235d8aabc875850c4e991f230",
+      "itemName": "에테르넬 나이트헬름",
+      "toolTipType": 4,
+      "bundleLabel": null,
+      "isAccountSharableAfterExchange": false,
+      "isCash": false,
+      "gender": "NONE",
+      "itemCode": "Cq8BClEKCwhlEGUgMDgOSLYGEAwgGED///////////8BWAhg////////////AYgBD6ABCbABgAK6ARMxOTAwLTAxLTAxIDAwOjAwOjAwyAHY9f3qoAESHAgEGO28/v///////wEglrn+////////ASja6gEaAiIAIgAqADIAOgBCAEoCCgBSGQicsz0aEzIwNzktMDEtMDEgMDA6MDA6MDBotqWYgNDEgIBqegCCAQISAA==",
+      "currentUpgradeCount": 0,
+      "starforce": 0,
+      "seedRingLevel": 0,
+      "royalSpecialType": 0,
+      "eventLabel": null,
+      "limitedLabel": null,
+      "illusionRingGrade": null,
+      "petGrade": 0,
+      "isLookChange": false,
+      "quantity": 1,
+      "price": "3555555555",
+      "pricePerItem": "3555555555",
+      "wishlistCount": 0,
+      "endDate": "2026-10-22T07:38:13.183Z",
+      "status": "ON_SALE",
+      "tradeDate": null,
+      "isMyItem": false,
+      "isDrawNumberItem": false,
+      "isTreatSingly": true,
+      "isDrawPricePerUnit": false,
+      "isPreviewable": false,
+      "isBuyAllUnderPrice": false,
+      "isTradeOnceItem": true,
+      "isRechargeableItem": false,
+      "priceDrawType": "Equip",
+      "bundleCount": null,
+      "attackPowerDiff": -7602623,
+      "attackPowerDiffPerSlot": null,
+      "toolTip": {
+        "starforce": 0,
+        "starforceMax": 30,
+        "titleInfo": {
+          "titleType": 0,
+          "title": "",
+          "isMeister": false,
+          "isMasterItem": false
+        },
+        "itemIcon": {
+          "fallBackUrl": "https://avatar.maplestory.nexon.com/ItemIcon/KEPCOOGB.png",
+          "encryptedLookItemId": "ca8fcfb235d8aabc875850c4e991f230"
+        },
+        "isProtected": false,
+        "isProtectedGreenZone": false,
+        "isPermanentlyAttributed": false,
+        "isAmazingHyperUpgradeUsed": false,
+        "vestige": false,
+        "itemName": "에테르넬 나이트헬름",
+        "itemDesc": null,
+        "faceEmotionLook": null,
+        "gradeInfo": {
+          "isSpecialGrade": false,
+          "royalSpecialType": 0,
+          "eventLabel": null,
+          "limitedLabel": null
+        },
+        "cashDesc": [],
+        "tradeDesc": [
+          "1회 교환 가능 (거래 후 교환 불가)",
+          "(가위 사용 잔여 횟수 : 9 / 10)"
+        ],
+        "expireDesc": "",
+        "abilityExpireDesc": [],
+        "attackPower": null,
+        "categories": [
+          "방어구",
+          "모자"
+        ],
+        "lookItem": null,
+        "reqJob": "전사",
+        "unwearableJobNames": [],
+        "reqLevel": 250,
+        "reqGender": null,
+        "androidPreview": null,
+        "androidGrade": null,
+        "setEffects": [
+          "에테르넬 세트(전사)"
+        ],
+        "setItemInfo": {
+          "encryptedSetItemId": "efd8f36de6cd49bc06029536b8528f3f",
+          "setItemName": "에테르넬 세트(전사)",
+          "completeCount": 8,
+          "parts": [
+            {
+              "typeName": "모자",
+              "representName": "에테르넬 나이트헬름",
+              "itemIds": [
+                "ca8fcfb235d8aabc875850c4e991f230"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "상의",
+              "representName": "에테르넬 나이트아머",
+              "itemIds": [
+                "71f102392c9170a0b49305a79303bbcf"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "하의",
+              "representName": "에테르넬 나이트팬츠",
+              "itemIds": [
+                "bd370bf560222512140905818887fe34"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "어깨장식",
+              "representName": "에테르넬 나이트숄더",
+              "itemIds": [
+                "41c3e8d860242a9bf9c4c84dce7aa650"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "장갑",
+              "representName": "에테르넬 나이트글러브",
+              "itemIds": [
+                "16fff00408a77c9311fc7eaf7091332c"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "신발",
+              "representName": "에테르넬 나이트슈즈",
+              "itemIds": [
+                "29e58a49c8565e2940e1c8174277c6d6"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "망토",
+              "representName": "에테르넬 나이트케이프",
+              "itemIds": [
+                "d8b851e92dedebad2430a847ddf6469d"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "무기",
+              "representName": "제네시스 또는 데스티니 무기 중 택1",
+              "itemIds": [
+                "c0d327e981f1f298ace2978ed5a0903c",
+                "b9bdeaaff7edc898edf045e0a4d57cff",
+                "8921293d1517c04b7f047c8c04b38c1d",
+                "1f187741562580e61e4b0f3e75bc5dad",
+                "7b1cc82aafbe4ed0805f319e0eaee602",
+                "a561e2ef115d20c15aafba0e1cc3d58d",
+                "f3c734b6b41f0c17bd2f97914a41fbca",
+                "c87e33d85088ab22ef1083fc93414263",
+                "5a5f429c49008bf513ca095804b84a36",
+                "dbd0cffaadb7b9df390fb9b24d0a30f5",
+                "7aaa99375b80216ff490d5966c66c5db",
+                "18020c0c555dc7568ef09c615b9d73a0",
+                "401cfc37ba5add08f795006e20e6a92b",
+                "04a75926a52c5092ccfc50409542b70c",
+                "3550c4cf7cc7ce696f67ff57f438cb12",
+                "2ba7a05a9c072dfd10083edbf87e7bc9",
+                "30d97336f1b7009a51ad4d9134fea48e",
+                "7c5d003f659af39cbb41b338a488d6bd",
+                "759dcef04e5cffeb8fd1c2299f1fb5e6",
+                "58a1c55fba217d11872ca7dac8f3439e",
+                "9b34b34e31d9c21893975d016daee3a4",
+                "13a619eb472ac3f51e457f9230a0dff2",
+                "19042f8a54208d374b772814114d54a0",
+                "cc2cdb0656fd71a093d85b67e3eaa7ab",
+                "99d0179cedc9c106a7938540dee44e1b",
+                "4d4cab46695fcf6243ffd76ebc2bc3a1",
+                "f7bbad176d7b99dfaf8496f378f1a63a",
+                "242c7cc36ebeebed7954acc488a7bcc2",
+                "5ebcd0f1172d4230128435a6ba13ec30",
+                "0ffc3d8f23dc2d986c909188cb71e7fa",
+                "a29b87b1a9f6a3b13f109570a11ee9ba",
+                "d6afd378e60a5cb7c0b6bad4c020866b",
+                "d42047b9b8fcd245ac31e667f06e1786",
+                "69d7b56750dca37bcff81d5a2fafa789",
+                "086fd6c8cf459046adeec5b07e16f522",
+                "95587090d98d209a1b974d1401304689",
+                "91f8982acdc88021bf978f984d860381",
+                "9b2dad5d6dbc7b0d1e4d1ddc91e340b0",
+                "a013095209d508aed28132de88a340f5",
+                "831af002d0664f48215cfc0d76760827",
+                "a5309e0cb70ce92e9fb40ef2686130b1",
+                "e97a93d709e1ab708099a0113da5920e"
+              ],
+              "memberNames": []
+            }
+          ],
+          "effects": [
+            {
+              "partsCount": 2,
+              "descriptions": [
+                "최대 HP / 최대 MP  +2500",
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +10%"
+              ]
+            },
+            {
+              "partsCount": 3,
+              "descriptions": [
+                "올스탯  +50",
+                "공격력 / 마력  +40",
+                "방어력  +600",
+                "보스 몬스터 데미지 +10%"
+              ]
+            },
+            {
+              "partsCount": 4,
+              "descriptions": [
+                "최대 HP / 최대 MP  +15%",
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +10%"
+              ]
+            },
+            {
+              "partsCount": 5,
+              "descriptions": [
+                "공격력 / 마력  +40",
+                "몬스터 방어율 무시 +20%"
+              ]
+            },
+            {
+              "partsCount": 6,
+              "descriptions": [
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +15%"
+              ]
+            },
+            {
+              "partsCount": 7,
+              "descriptions": [
+                "올스탯  +50, 최대 HP / 최대 MP  +2500",
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +15%"
+              ]
+            },
+            {
+              "partsCount": 8,
+              "descriptions": [
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +15%"
+              ]
+            }
+          ]
+        },
+        "skillNames": null,
+        "seedRingType": 0,
+        "seedRingTotalInfo": null,
+        "seedRingLevel": 0,
+        "attackSpeed": null,
+        "durability": null,
+        "stat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 101,
+          "dex": 101,
+          "int": 0,
+          "luk": 48,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 14,
+          "mad": 0,
+          "pdd": 822,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 15,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "baseStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 80,
+          "dex": 80,
+          "int": 0,
+          "luk": 0,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 10,
+          "mad": 0,
+          "pdd": 750,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 15,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "starforceStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 0,
+          "dex": 0,
+          "int": 0,
+          "luk": 0,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 0,
+          "mad": 0,
+          "pdd": 0,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 0,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "upgradeStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 0,
+          "dex": 0,
+          "int": 0,
+          "luk": 0,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 0,
+          "mad": 0,
+          "pdd": 0,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 0,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "exOptionStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 21,
+          "dex": 21,
+          "int": 0,
+          "luk": 48,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 4,
+          "mad": 0,
+          "pdd": 72,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 0,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "timeLimitedStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 0,
+          "dex": 0,
+          "int": 0,
+          "luk": 0,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 0,
+          "mad": 0,
+          "pdd": 0,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 0,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "cashOptionStat": null,
+        "preventSlip": false,
+        "supportWarm": false,
+        "upgradeInfo": {
+          "disabledSummary": "",
+          "starForce": {
+            "current": 0,
+            "max": 30,
+            "canUpgrade": true,
+            "description": "스타포스 : 없음 (최대 30성)"
+          },
+          "scroll": {
+            "current": 0,
+            "remaining": 12,
+            "failure": 0,
+            "max": 12,
+            "canUpgrade": true,
+            "description": "주문서 강화 없음 (잔여 12회, 복구 가능 0회)"
+          },
+          "exOption": {
+            "sum": 17,
+            "canUpgrade": true,
+            "entries": [
+              {
+                "grade": 6,
+                "text": "방어력  +72"
+              },
+              {
+                "grade": 4,
+                "text": "LUK  +48"
+              },
+              {
+                "grade": 4,
+                "text": "공격력  +4"
+              },
+              {
+                "grade": 3,
+                "text": "STR, DEX  +21"
+              }
+            ],
+            "description": "추가옵션"
+          },
+          "potential": {
+            "grade": 4,
+            "entries": [
+              {
+                "grade": 4,
+                "text": "스킬 재사용 대기시간 -2초"
+              },
+              {
+                "grade": 4,
+                "text": "올스탯 +10%"
+              },
+              {
+                "grade": 3,
+                "text": "DEX +10%"
+              }
+            ],
+            "description": "잠재능력 : 레전드리"
+          },
+          "additionalPotential": {
+            "grade": 0,
+            "entries": [],
+            "description": "에디셔널 잠재능력 : 없음"
+          }
+        },
+        "soulWeapon": null,
+        "exceptionalUpgrade": null,
+        "mvpGrade": null,
+        "attributeInfo": {
+          "descs": [],
+          "itemLimit": null,
+          "seedRingLimit": null
+        },
+        "addition": null,
+        "epicDesc": null,
+        "variableStat": null,
+        "illusionRingGrade": null,
+        "descs": [
+          "#c일부 상황에서는 보이지 않는 아이템입니다.#"
+        ],
+        "growthDescs": [],
+        "specificTargetDescs": [],
+        "prismColorInfo": null,
+        "prismPartName": null,
+        "prismColor": null,
+        "symbolGrowth": null,
+        "normalGrowth": null
+      }
+    },
+    {
+      "_id": "uzb8HXnjoSusscQ_F8osblbpPHV5_-Zb11tS1kx2l6w:1",
+      "tradeSn": "uzb8HXnjoSusscQ_F8osblbpPHV5_-Zb11tS1kx2l6w",
+      "subIdx": 1,
+      "isMyWorld": true,
+      "itemIcon": {
+        "fallBackUrl": "https://avatar.maplestory.nexon.com/ItemIcon/KEPCOOGB.png",
+        "encryptedLookItemId": "ca8fcfb235d8aabc875850c4e991f230"
+      },
+      "encryptedItemId": "ca8fcfb235d8aabc875850c4e991f230",
+      "itemName": "에테르넬 나이트헬름",
+      "toolTipType": 4,
+      "bundleLabel": null,
+      "isAccountSharableAfterExchange": false,
+      "isCash": false,
+      "gender": "NONE",
+      "itemCode": "CrcBClcKDgikARB6GCo4CkAFSO4FEAwgOED///////////8BWAhg////////////AYgBD5gBBKABCbABgCK6ARMxOTAwLTAxLTAxIDAwOjAwOjAwyAGuhsHUjQcSHggEGO28/v///////wEg2eoBKNvqATCOXkDaD0jcDxoCIgAiACoAMgA6AEIASgIKAFIZCJyzPRoTMjA3OS0wMS0wMSAwMDowMDowMGjewJSAwMqBgAx6AIIBAhIA",
+      "currentUpgradeCount": 0,
+      "starforce": 0,
+      "seedRingLevel": 0,
+      "royalSpecialType": 0,
+      "eventLabel": null,
+      "limitedLabel": null,
+      "illusionRingGrade": null,
+      "petGrade": 0,
+      "isLookChange": false,
+      "quantity": 1,
+      "price": "3600000000",
+      "pricePerItem": "3600000000",
+      "wishlistCount": 0,
+      "endDate": "2026-10-22T06:21:48.767Z",
+      "status": "ON_SALE",
+      "tradeDate": null,
+      "isMyItem": false,
+      "isDrawNumberItem": false,
+      "isTreatSingly": true,
+      "isDrawPricePerUnit": false,
+      "isPreviewable": false,
+      "isBuyAllUnderPrice": false,
+      "isTradeOnceItem": true,
+      "isRechargeableItem": false,
+      "priceDrawType": "Equip",
+      "bundleCount": null,
+      "attackPowerDiff": -6727756,
+      "attackPowerDiffPerSlot": null,
+      "toolTip": {
+        "starforce": 0,
+        "starforceMax": 30,
+        "titleInfo": {
+          "titleType": 0,
+          "title": "",
+          "isMeister": false,
+          "isMasterItem": false
+        },
+        "itemIcon": {
+          "fallBackUrl": "https://avatar.maplestory.nexon.com/ItemIcon/KEPCOOGB.png",
+          "encryptedLookItemId": "ca8fcfb235d8aabc875850c4e991f230"
+        },
+        "isProtected": false,
+        "isProtectedGreenZone": false,
+        "isPermanentlyAttributed": false,
+        "isAmazingHyperUpgradeUsed": false,
+        "vestige": false,
+        "itemName": "에테르넬 나이트헬름",
+        "itemDesc": null,
+        "faceEmotionLook": null,
+        "gradeInfo": {
+          "isSpecialGrade": false,
+          "royalSpecialType": 0,
+          "eventLabel": null,
+          "limitedLabel": null
+        },
+        "cashDesc": [],
+        "tradeDesc": [
+          "1회 교환 가능 (거래 후 교환 불가)",
+          "(가위 사용 잔여 횟수 : 9 / 10)"
+        ],
+        "expireDesc": "",
+        "abilityExpireDesc": [],
+        "attackPower": null,
+        "categories": [
+          "방어구",
+          "모자"
+        ],
+        "lookItem": null,
+        "reqJob": "전사",
+        "unwearableJobNames": [],
+        "reqLevel": 250,
+        "reqGender": null,
+        "androidPreview": null,
+        "androidGrade": null,
+        "setEffects": [
+          "에테르넬 세트(전사)"
+        ],
+        "setItemInfo": {
+          "encryptedSetItemId": "efd8f36de6cd49bc06029536b8528f3f",
+          "setItemName": "에테르넬 세트(전사)",
+          "completeCount": 8,
+          "parts": [
+            {
+              "typeName": "모자",
+              "representName": "에테르넬 나이트헬름",
+              "itemIds": [
+                "ca8fcfb235d8aabc875850c4e991f230"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "상의",
+              "representName": "에테르넬 나이트아머",
+              "itemIds": [
+                "71f102392c9170a0b49305a79303bbcf"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "하의",
+              "representName": "에테르넬 나이트팬츠",
+              "itemIds": [
+                "bd370bf560222512140905818887fe34"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "어깨장식",
+              "representName": "에테르넬 나이트숄더",
+              "itemIds": [
+                "41c3e8d860242a9bf9c4c84dce7aa650"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "장갑",
+              "representName": "에테르넬 나이트글러브",
+              "itemIds": [
+                "16fff00408a77c9311fc7eaf7091332c"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "신발",
+              "representName": "에테르넬 나이트슈즈",
+              "itemIds": [
+                "29e58a49c8565e2940e1c8174277c6d6"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "망토",
+              "representName": "에테르넬 나이트케이프",
+              "itemIds": [
+                "d8b851e92dedebad2430a847ddf6469d"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "무기",
+              "representName": "제네시스 또는 데스티니 무기 중 택1",
+              "itemIds": [
+                "c0d327e981f1f298ace2978ed5a0903c",
+                "b9bdeaaff7edc898edf045e0a4d57cff",
+                "8921293d1517c04b7f047c8c04b38c1d",
+                "1f187741562580e61e4b0f3e75bc5dad",
+                "7b1cc82aafbe4ed0805f319e0eaee602",
+                "a561e2ef115d20c15aafba0e1cc3d58d",
+                "f3c734b6b41f0c17bd2f97914a41fbca",
+                "c87e33d85088ab22ef1083fc93414263",
+                "5a5f429c49008bf513ca095804b84a36",
+                "dbd0cffaadb7b9df390fb9b24d0a30f5",
+                "7aaa99375b80216ff490d5966c66c5db",
+                "18020c0c555dc7568ef09c615b9d73a0",
+                "401cfc37ba5add08f795006e20e6a92b",
+                "04a75926a52c5092ccfc50409542b70c",
+                "3550c4cf7cc7ce696f67ff57f438cb12",
+                "2ba7a05a9c072dfd10083edbf87e7bc9",
+                "30d97336f1b7009a51ad4d9134fea48e",
+                "7c5d003f659af39cbb41b338a488d6bd",
+                "759dcef04e5cffeb8fd1c2299f1fb5e6",
+                "58a1c55fba217d11872ca7dac8f3439e",
+                "9b34b34e31d9c21893975d016daee3a4",
+                "13a619eb472ac3f51e457f9230a0dff2",
+                "19042f8a54208d374b772814114d54a0",
+                "cc2cdb0656fd71a093d85b67e3eaa7ab",
+                "99d0179cedc9c106a7938540dee44e1b",
+                "4d4cab46695fcf6243ffd76ebc2bc3a1",
+                "f7bbad176d7b99dfaf8496f378f1a63a",
+                "242c7cc36ebeebed7954acc488a7bcc2",
+                "5ebcd0f1172d4230128435a6ba13ec30",
+                "0ffc3d8f23dc2d986c909188cb71e7fa",
+                "a29b87b1a9f6a3b13f109570a11ee9ba",
+                "d6afd378e60a5cb7c0b6bad4c020866b",
+                "d42047b9b8fcd245ac31e667f06e1786",
+                "69d7b56750dca37bcff81d5a2fafa789",
+                "086fd6c8cf459046adeec5b07e16f522",
+                "95587090d98d209a1b974d1401304689",
+                "91f8982acdc88021bf978f984d860381",
+                "9b2dad5d6dbc7b0d1e4d1ddc91e340b0",
+                "a013095209d508aed28132de88a340f5",
+                "831af002d0664f48215cfc0d76760827",
+                "a5309e0cb70ce92e9fb40ef2686130b1",
+                "e97a93d709e1ab708099a0113da5920e"
+              ],
+              "memberNames": []
+            }
+          ],
+          "effects": [
+            {
+              "partsCount": 2,
+              "descriptions": [
+                "최대 HP / 최대 MP  +2500",
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +10%"
+              ]
+            },
+            {
+              "partsCount": 3,
+              "descriptions": [
+                "올스탯  +50",
+                "공격력 / 마력  +40",
+                "방어력  +600",
+                "보스 몬스터 데미지 +10%"
+              ]
+            },
+            {
+              "partsCount": 4,
+              "descriptions": [
+                "최대 HP / 최대 MP  +15%",
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +10%"
+              ]
+            },
+            {
+              "partsCount": 5,
+              "descriptions": [
+                "공격력 / 마력  +40",
+                "몬스터 방어율 무시 +20%"
+              ]
+            },
+            {
+              "partsCount": 6,
+              "descriptions": [
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +15%"
+              ]
+            },
+            {
+              "partsCount": 7,
+              "descriptions": [
+                "올스탯  +50, 최대 HP / 최대 MP  +2500",
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +15%"
+              ]
+            },
+            {
+              "partsCount": 8,
+              "descriptions": [
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +15%"
+              ]
+            }
+          ]
+        },
+        "skillNames": null,
+        "seedRingType": 0,
+        "seedRingTotalInfo": null,
+        "seedRingLevel": 0,
+        "attackSpeed": null,
+        "durability": null,
+        "stat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 164,
+          "dex": 122,
+          "int": 42,
+          "luk": 0,
+          "all": 4,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 10,
+          "mad": 5,
+          "pdd": 750,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 15,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "baseStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 80,
+          "dex": 80,
+          "int": 0,
+          "luk": 0,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 10,
+          "mad": 0,
+          "pdd": 750,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 15,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "starforceStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 0,
+          "dex": 0,
+          "int": 0,
+          "luk": 0,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 0,
+          "mad": 0,
+          "pdd": 0,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 0,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "upgradeStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 0,
+          "dex": 0,
+          "int": 0,
+          "luk": 0,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 0,
+          "mad": 0,
+          "pdd": 0,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 0,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "exOptionStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 84,
+          "dex": 42,
+          "int": 42,
+          "luk": 0,
+          "all": 4,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 0,
+          "mad": 5,
+          "pdd": 0,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 0,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "timeLimitedStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 0,
+          "dex": 0,
+          "int": 0,
+          "luk": 0,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 0,
+          "mad": 0,
+          "pdd": 0,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 0,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "cashOptionStat": null,
+        "preventSlip": false,
+        "supportWarm": false,
+        "upgradeInfo": {
+          "disabledSummary": "",
+          "starForce": {
+            "current": 0,
+            "max": 30,
+            "canUpgrade": true,
+            "description": "스타포스 : 없음 (최대 30성)"
+          },
+          "scroll": {
+            "current": 0,
+            "remaining": 12,
+            "failure": 0,
+            "max": 12,
+            "canUpgrade": true,
+            "description": "주문서 강화 없음 (잔여 12회, 복구 가능 0회)"
+          },
+          "exOption": {
+            "sum": 21,
+            "canUpgrade": true,
+            "entries": [
+              {
+                "grade": 6,
+                "text": "STR, DEX  +42"
+              },
+              {
+                "grade": 6,
+                "text": "STR, INT  +42"
+              },
+              {
+                "grade": 5,
+                "text": "마력  +5"
+              },
+              {
+                "grade": 4,
+                "text": "올스탯  +4%"
+              }
+            ],
+            "description": "추가옵션"
+          },
+          "potential": {
+            "grade": 4,
+            "entries": [
+              {
+                "grade": 4,
+                "text": "스킬 재사용 대기시간 -2초"
+              },
+              {
+                "grade": 3,
+                "text": "STR +10%"
+              },
+              {
+                "grade": 3,
+                "text": "INT +10%"
+              }
+            ],
+            "description": "잠재능력 : 레전드리"
+          },
+          "additionalPotential": {
+            "grade": 1,
+            "entries": [
+              {
+                "grade": 1,
+                "text": "최대 MP +3%"
+              },
+              {
+                "grade": 0,
+                "text": "점프력 +4"
+              },
+              {
+                "grade": 0,
+                "text": "마력 +3"
+              }
+            ],
+            "description": "에디셔널 잠재능력 : 레어"
+          }
+        },
+        "soulWeapon": null,
+        "exceptionalUpgrade": null,
+        "mvpGrade": null,
+        "attributeInfo": {
+          "descs": [],
+          "itemLimit": null,
+          "seedRingLimit": null
+        },
+        "addition": null,
+        "epicDesc": null,
+        "variableStat": null,
+        "illusionRingGrade": null,
+        "descs": [
+          "#c일부 상황에서는 보이지 않는 아이템입니다.#"
+        ],
+        "growthDescs": [],
+        "specificTargetDescs": [],
+        "prismColorInfo": null,
+        "prismPartName": null,
+        "prismColor": null,
+        "symbolGrowth": null,
+        "normalGrowth": null
+      }
+    },
+    {
+      "_id": "SsoPWnhb6--TEW_RBzt6Srb-2V4QvujY_oLgiS5Tkxc:0",
+      "tradeSn": "SsoPWnhb6--TEW_RBzt6Srb-2V4QvujY_oLgiS5Tkxc",
+      "subIdx": 0,
+      "isMyWorld": true,
+      "itemIcon": {
+        "fallBackUrl": "https://avatar.maplestory.nexon.com/ItemIcon/KEPCOOGB.png",
+        "encryptedLookItemId": "ca8fcfb235d8aabc875850c4e991f230"
+      },
+      "encryptedItemId": "ca8fcfb235d8aabc875850c4e991f230",
+      "itemName": "에테르넬 나이트헬름",
+      "toolTipType": 4,
+      "bundleLabel": null,
+      "isAccountSharableAfterExchange": false,
+      "isCash": false,
+      "gender": "NONE",
+      "itemCode": "CqwBClUKDghQEJUBGBUgKjgKSO4FEAxA////////////AVgIYP///////////wGIAQ+YAQSgAQqwAYAiugETMTkwMC0wMS0wMSAwMDowMDowMMgBrI3JwNoCEhUIBBjtvP7///////8BIJTtASjZ6gEaAiIAIgAqADIAOgBCAEoCCgBSGQicsz0aEzIwNzktMDEtMDEgMDA6MDA6MDBosaaGgIDMgYAYegCCAQISAA==",
+      "currentUpgradeCount": 0,
+      "starforce": 0,
+      "seedRingLevel": 0,
+      "royalSpecialType": 0,
+      "eventLabel": null,
+      "limitedLabel": null,
+      "illusionRingGrade": null,
+      "petGrade": 0,
+      "isLookChange": false,
+      "quantity": 1,
+      "price": "3877777777",
+      "pricePerItem": "3877777777",
+      "wishlistCount": 3,
+      "endDate": "2026-10-20T13:55:30.663Z",
+      "status": "ON_SALE",
+      "tradeDate": null,
+      "isMyItem": false,
+      "isDrawNumberItem": false,
+      "isTreatSingly": true,
+      "isDrawPricePerUnit": false,
+      "isPreviewable": false,
+      "isBuyAllUnderPrice": false,
+      "isTradeOnceItem": false,
+      "isRechargeableItem": false,
+      "priceDrawType": "Equip",
+      "bundleCount": null,
+      "attackPowerDiff": -7747152,
+      "attackPowerDiffPerSlot": null,
+      "toolTip": {
+        "starforce": 0,
+        "starforceMax": 30,
+        "titleInfo": {
+          "titleType": 0,
+          "title": "",
+          "isMeister": false,
+          "isMasterItem": false
+        },
+        "itemIcon": {
+          "fallBackUrl": "https://avatar.maplestory.nexon.com/ItemIcon/KEPCOOGB.png",
+          "encryptedLookItemId": "ca8fcfb235d8aabc875850c4e991f230"
+        },
+        "isProtected": false,
+        "isProtectedGreenZone": false,
+        "isPermanentlyAttributed": false,
+        "isAmazingHyperUpgradeUsed": false,
+        "vestige": false,
+        "itemName": "에테르넬 나이트헬름",
+        "itemDesc": null,
+        "faceEmotionLook": null,
+        "gradeInfo": {
+          "isSpecialGrade": false,
+          "royalSpecialType": 0,
+          "eventLabel": null,
+          "limitedLabel": null
+        },
+        "cashDesc": [],
+        "tradeDesc": [
+          "장착 시 교환 불가",
+          "(가위 사용 잔여 횟수 : 10 / 10)"
+        ],
+        "expireDesc": "",
+        "abilityExpireDesc": [],
+        "attackPower": null,
+        "categories": [
+          "방어구",
+          "모자"
+        ],
+        "lookItem": null,
+        "reqJob": "전사",
+        "unwearableJobNames": [],
+        "reqLevel": 250,
+        "reqGender": null,
+        "androidPreview": null,
+        "androidGrade": null,
+        "setEffects": [
+          "에테르넬 세트(전사)"
+        ],
+        "setItemInfo": {
+          "encryptedSetItemId": "efd8f36de6cd49bc06029536b8528f3f",
+          "setItemName": "에테르넬 세트(전사)",
+          "completeCount": 8,
+          "parts": [
+            {
+              "typeName": "모자",
+              "representName": "에테르넬 나이트헬름",
+              "itemIds": [
+                "ca8fcfb235d8aabc875850c4e991f230"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "상의",
+              "representName": "에테르넬 나이트아머",
+              "itemIds": [
+                "71f102392c9170a0b49305a79303bbcf"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "하의",
+              "representName": "에테르넬 나이트팬츠",
+              "itemIds": [
+                "bd370bf560222512140905818887fe34"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "어깨장식",
+              "representName": "에테르넬 나이트숄더",
+              "itemIds": [
+                "41c3e8d860242a9bf9c4c84dce7aa650"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "장갑",
+              "representName": "에테르넬 나이트글러브",
+              "itemIds": [
+                "16fff00408a77c9311fc7eaf7091332c"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "신발",
+              "representName": "에테르넬 나이트슈즈",
+              "itemIds": [
+                "29e58a49c8565e2940e1c8174277c6d6"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "망토",
+              "representName": "에테르넬 나이트케이프",
+              "itemIds": [
+                "d8b851e92dedebad2430a847ddf6469d"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "무기",
+              "representName": "제네시스 또는 데스티니 무기 중 택1",
+              "itemIds": [
+                "c0d327e981f1f298ace2978ed5a0903c",
+                "b9bdeaaff7edc898edf045e0a4d57cff",
+                "8921293d1517c04b7f047c8c04b38c1d",
+                "1f187741562580e61e4b0f3e75bc5dad",
+                "7b1cc82aafbe4ed0805f319e0eaee602",
+                "a561e2ef115d20c15aafba0e1cc3d58d",
+                "f3c734b6b41f0c17bd2f97914a41fbca",
+                "c87e33d85088ab22ef1083fc93414263",
+                "5a5f429c49008bf513ca095804b84a36",
+                "dbd0cffaadb7b9df390fb9b24d0a30f5",
+                "7aaa99375b80216ff490d5966c66c5db",
+                "18020c0c555dc7568ef09c615b9d73a0",
+                "401cfc37ba5add08f795006e20e6a92b",
+                "04a75926a52c5092ccfc50409542b70c",
+                "3550c4cf7cc7ce696f67ff57f438cb12",
+                "2ba7a05a9c072dfd10083edbf87e7bc9",
+                "30d97336f1b7009a51ad4d9134fea48e",
+                "7c5d003f659af39cbb41b338a488d6bd",
+                "759dcef04e5cffeb8fd1c2299f1fb5e6",
+                "58a1c55fba217d11872ca7dac8f3439e",
+                "9b34b34e31d9c21893975d016daee3a4",
+                "13a619eb472ac3f51e457f9230a0dff2",
+                "19042f8a54208d374b772814114d54a0",
+                "cc2cdb0656fd71a093d85b67e3eaa7ab",
+                "99d0179cedc9c106a7938540dee44e1b",
+                "4d4cab46695fcf6243ffd76ebc2bc3a1",
+                "f7bbad176d7b99dfaf8496f378f1a63a",
+                "242c7cc36ebeebed7954acc488a7bcc2",
+                "5ebcd0f1172d4230128435a6ba13ec30",
+                "0ffc3d8f23dc2d986c909188cb71e7fa",
+                "a29b87b1a9f6a3b13f109570a11ee9ba",
+                "d6afd378e60a5cb7c0b6bad4c020866b",
+                "d42047b9b8fcd245ac31e667f06e1786",
+                "69d7b56750dca37bcff81d5a2fafa789",
+                "086fd6c8cf459046adeec5b07e16f522",
+                "95587090d98d209a1b974d1401304689",
+                "91f8982acdc88021bf978f984d860381",
+                "9b2dad5d6dbc7b0d1e4d1ddc91e340b0",
+                "a013095209d508aed28132de88a340f5",
+                "831af002d0664f48215cfc0d76760827",
+                "a5309e0cb70ce92e9fb40ef2686130b1",
+                "e97a93d709e1ab708099a0113da5920e"
+              ],
+              "memberNames": []
+            }
+          ],
+          "effects": [
+            {
+              "partsCount": 2,
+              "descriptions": [
+                "최대 HP / 최대 MP  +2500",
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +10%"
+              ]
+            },
+            {
+              "partsCount": 3,
+              "descriptions": [
+                "올스탯  +50",
+                "공격력 / 마력  +40",
+                "방어력  +600",
+                "보스 몬스터 데미지 +10%"
+              ]
+            },
+            {
+              "partsCount": 4,
+              "descriptions": [
+                "최대 HP / 최대 MP  +15%",
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +10%"
+              ]
+            },
+            {
+              "partsCount": 5,
+              "descriptions": [
+                "공격력 / 마력  +40",
+                "몬스터 방어율 무시 +20%"
+              ]
+            },
+            {
+              "partsCount": 6,
+              "descriptions": [
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +15%"
+              ]
+            },
+            {
+              "partsCount": 7,
+              "descriptions": [
+                "올스탯  +50, 최대 HP / 최대 MP  +2500",
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +15%"
+              ]
+            },
+            {
+              "partsCount": 8,
+              "descriptions": [
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +15%"
+              ]
+            }
+          ]
+        },
+        "skillNames": null,
+        "seedRingType": 0,
+        "seedRingTotalInfo": null,
+        "seedRingLevel": 0,
+        "attackSpeed": null,
+        "durability": null,
+        "stat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 80,
+          "dex": 149,
+          "int": 21,
+          "luk": 42,
+          "all": 4,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 10,
+          "mad": 0,
+          "pdd": 750,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 15,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "baseStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 80,
+          "dex": 80,
+          "int": 0,
+          "luk": 0,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 10,
+          "mad": 0,
+          "pdd": 750,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 15,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "starforceStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 0,
+          "dex": 0,
+          "int": 0,
+          "luk": 0,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 0,
+          "mad": 0,
+          "pdd": 0,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 0,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "upgradeStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 0,
+          "dex": 0,
+          "int": 0,
+          "luk": 0,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 0,
+          "mad": 0,
+          "pdd": 0,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 0,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "exOptionStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 0,
+          "dex": 69,
+          "int": 21,
+          "luk": 42,
+          "all": 4,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 0,
+          "mad": 0,
+          "pdd": 0,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 0,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "timeLimitedStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 0,
+          "dex": 0,
+          "int": 0,
+          "luk": 0,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 0,
+          "mad": 0,
+          "pdd": 0,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 0,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "cashOptionStat": null,
+        "preventSlip": false,
+        "supportWarm": false,
+        "upgradeInfo": {
+          "disabledSummary": "",
+          "starForce": {
+            "current": 0,
+            "max": 30,
+            "canUpgrade": true,
+            "description": "스타포스 : 없음 (최대 30성)"
+          },
+          "scroll": {
+            "current": 0,
+            "remaining": 12,
+            "failure": 0,
+            "max": 12,
+            "canUpgrade": true,
+            "description": "주문서 강화 없음 (잔여 12회, 복구 가능 0회)"
+          },
+          "exOption": {
+            "sum": 14,
+            "canUpgrade": true,
+            "entries": [
+              {
+                "grade": 4,
+                "text": "올스탯  +4%"
+              },
+              {
+                "grade": 3,
+                "text": "DEX, LUK  +21"
+              },
+              {
+                "grade": 4,
+                "text": "DEX  +48"
+              },
+              {
+                "grade": 3,
+                "text": "INT, LUK  +21"
+              }
+            ],
+            "description": "추가옵션"
+          },
+          "potential": {
+            "grade": 4,
+            "entries": [
+              {
+                "grade": 4,
+                "text": "스킬 재사용 대기시간 -2초"
+              },
+              {
+                "grade": 3,
+                "text": "피격 시 5% 확률로 데미지의 20% 무시"
+              },
+              {
+                "grade": 3,
+                "text": "STR +10%"
+              }
+            ],
+            "description": "잠재능력 : 레전드리"
+          },
+          "additionalPotential": {
+            "grade": 0,
+            "entries": [],
+            "description": "에디셔널 잠재능력 : 없음"
+          }
+        },
+        "soulWeapon": null,
+        "exceptionalUpgrade": null,
+        "mvpGrade": null,
+        "attributeInfo": {
+          "descs": [],
+          "itemLimit": null,
+          "seedRingLimit": null
+        },
+        "addition": null,
+        "epicDesc": null,
+        "variableStat": null,
+        "illusionRingGrade": null,
+        "descs": [
+          "#c일부 상황에서는 보이지 않는 아이템입니다.#"
+        ],
+        "growthDescs": [],
+        "specificTargetDescs": [],
+        "prismColorInfo": null,
+        "prismPartName": null,
+        "prismColor": null,
+        "symbolGrowth": null,
+        "normalGrowth": null
+      }
+    },
+    {
+      "_id": "ThzB0Pq0fsNVhaiSK4wrevZ-kG1P07lLFO-8-Turg_0:2",
+      "tradeSn": "ThzB0Pq0fsNVhaiSK4wrevZ-kG1P07lLFO-8-Turg_0",
+      "subIdx": 2,
+      "isMyWorld": false,
+      "itemIcon": {
+        "fallBackUrl": "https://avatar.maplestory.nexon.com/ItemIcon/KEPCOOGB.png",
+        "encryptedLookItemId": "ca8fcfb235d8aabc875850c4e991f230"
+      },
+      "encryptedItemId": "ca8fcfb235d8aabc875850c4e991f230",
+      "itemName": "에테르넬 나이트헬름",
+      "toolTipType": 4,
+      "bundleLabel": null,
+      "isAccountSharableAfterExchange": false,
+      "isCash": false,
+      "gender": "NONE",
+      "itemCode": "CqwBClUKEQhQEHoYJCAqOApI7gVYBGADEAxA////////////AVgIYP///////////wGIAQ+gAQqwAYACugETMTkwMC0wMS0wMSAwMDowMDowMMgB5q+AqfQFEhUIBBjtvP7///////8BINnqASia8gEaAiIAIgAqADIAOgBCAEoCCgBSGQicsz0aEzIwNzktMDEtMDEgMDA6MDA6MDBolrqhgODGgIByegCCAQISAA==",
+      "currentUpgradeCount": 0,
+      "starforce": 0,
+      "seedRingLevel": 0,
+      "royalSpecialType": 0,
+      "eventLabel": null,
+      "limitedLabel": null,
+      "illusionRingGrade": null,
+      "petGrade": 0,
+      "isLookChange": false,
+      "quantity": 1,
+      "price": "4111111111",
+      "pricePerItem": "4111111111",
+      "wishlistCount": 0,
+      "endDate": "2026-10-21T15:54:43.030Z",
+      "status": "ON_SALE",
+      "tradeDate": null,
+      "isMyItem": false,
+      "isDrawNumberItem": false,
+      "isTreatSingly": true,
+      "isDrawPricePerUnit": false,
+      "isPreviewable": false,
+      "isBuyAllUnderPrice": false,
+      "isTradeOnceItem": false,
+      "isRechargeableItem": false,
+      "priceDrawType": "Equip",
+      "bundleCount": null,
+      "attackPowerDiff": -8322361,
+      "attackPowerDiffPerSlot": null,
+      "toolTip": {
+        "starforce": 0,
+        "starforceMax": 30,
+        "titleInfo": {
+          "titleType": 0,
+          "title": "",
+          "isMeister": false,
+          "isMasterItem": false
+        },
+        "itemIcon": {
+          "fallBackUrl": "https://avatar.maplestory.nexon.com/ItemIcon/KEPCOOGB.png",
+          "encryptedLookItemId": "ca8fcfb235d8aabc875850c4e991f230"
+        },
+        "isProtected": false,
+        "isProtectedGreenZone": false,
+        "isPermanentlyAttributed": false,
+        "isAmazingHyperUpgradeUsed": false,
+        "vestige": false,
+        "itemName": "에테르넬 나이트헬름",
+        "itemDesc": null,
+        "faceEmotionLook": null,
+        "gradeInfo": {
+          "isSpecialGrade": false,
+          "royalSpecialType": 0,
+          "eventLabel": null,
+          "limitedLabel": null
+        },
+        "cashDesc": [],
+        "tradeDesc": [
+          "장착 시 교환 불가",
+          "(가위 사용 잔여 횟수 : 10 / 10)"
+        ],
+        "expireDesc": "",
+        "abilityExpireDesc": [],
+        "attackPower": null,
+        "categories": [
+          "방어구",
+          "모자"
+        ],
+        "lookItem": null,
+        "reqJob": "전사",
+        "unwearableJobNames": [],
+        "reqLevel": 250,
+        "reqGender": null,
+        "androidPreview": null,
+        "androidGrade": null,
+        "setEffects": [
+          "에테르넬 세트(전사)"
+        ],
+        "setItemInfo": {
+          "encryptedSetItemId": "efd8f36de6cd49bc06029536b8528f3f",
+          "setItemName": "에테르넬 세트(전사)",
+          "completeCount": 8,
+          "parts": [
+            {
+              "typeName": "모자",
+              "representName": "에테르넬 나이트헬름",
+              "itemIds": [
+                "ca8fcfb235d8aabc875850c4e991f230"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "상의",
+              "representName": "에테르넬 나이트아머",
+              "itemIds": [
+                "71f102392c9170a0b49305a79303bbcf"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "하의",
+              "representName": "에테르넬 나이트팬츠",
+              "itemIds": [
+                "bd370bf560222512140905818887fe34"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "어깨장식",
+              "representName": "에테르넬 나이트숄더",
+              "itemIds": [
+                "41c3e8d860242a9bf9c4c84dce7aa650"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "장갑",
+              "representName": "에테르넬 나이트글러브",
+              "itemIds": [
+                "16fff00408a77c9311fc7eaf7091332c"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "신발",
+              "representName": "에테르넬 나이트슈즈",
+              "itemIds": [
+                "29e58a49c8565e2940e1c8174277c6d6"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "망토",
+              "representName": "에테르넬 나이트케이프",
+              "itemIds": [
+                "d8b851e92dedebad2430a847ddf6469d"
+              ],
+              "memberNames": []
+            },
+            {
+              "typeName": "무기",
+              "representName": "제네시스 또는 데스티니 무기 중 택1",
+              "itemIds": [
+                "c0d327e981f1f298ace2978ed5a0903c",
+                "b9bdeaaff7edc898edf045e0a4d57cff",
+                "8921293d1517c04b7f047c8c04b38c1d",
+                "1f187741562580e61e4b0f3e75bc5dad",
+                "7b1cc82aafbe4ed0805f319e0eaee602",
+                "a561e2ef115d20c15aafba0e1cc3d58d",
+                "f3c734b6b41f0c17bd2f97914a41fbca",
+                "c87e33d85088ab22ef1083fc93414263",
+                "5a5f429c49008bf513ca095804b84a36",
+                "dbd0cffaadb7b9df390fb9b24d0a30f5",
+                "7aaa99375b80216ff490d5966c66c5db",
+                "18020c0c555dc7568ef09c615b9d73a0",
+                "401cfc37ba5add08f795006e20e6a92b",
+                "04a75926a52c5092ccfc50409542b70c",
+                "3550c4cf7cc7ce696f67ff57f438cb12",
+                "2ba7a05a9c072dfd10083edbf87e7bc9",
+                "30d97336f1b7009a51ad4d9134fea48e",
+                "7c5d003f659af39cbb41b338a488d6bd",
+                "759dcef04e5cffeb8fd1c2299f1fb5e6",
+                "58a1c55fba217d11872ca7dac8f3439e",
+                "9b34b34e31d9c21893975d016daee3a4",
+                "13a619eb472ac3f51e457f9230a0dff2",
+                "19042f8a54208d374b772814114d54a0",
+                "cc2cdb0656fd71a093d85b67e3eaa7ab",
+                "99d0179cedc9c106a7938540dee44e1b",
+                "4d4cab46695fcf6243ffd76ebc2bc3a1",
+                "f7bbad176d7b99dfaf8496f378f1a63a",
+                "242c7cc36ebeebed7954acc488a7bcc2",
+                "5ebcd0f1172d4230128435a6ba13ec30",
+                "0ffc3d8f23dc2d986c909188cb71e7fa",
+                "a29b87b1a9f6a3b13f109570a11ee9ba",
+                "d6afd378e60a5cb7c0b6bad4c020866b",
+                "d42047b9b8fcd245ac31e667f06e1786",
+                "69d7b56750dca37bcff81d5a2fafa789",
+                "086fd6c8cf459046adeec5b07e16f522",
+                "95587090d98d209a1b974d1401304689",
+                "91f8982acdc88021bf978f984d860381",
+                "9b2dad5d6dbc7b0d1e4d1ddc91e340b0",
+                "a013095209d508aed28132de88a340f5",
+                "831af002d0664f48215cfc0d76760827",
+                "a5309e0cb70ce92e9fb40ef2686130b1",
+                "e97a93d709e1ab708099a0113da5920e"
+              ],
+              "memberNames": []
+            }
+          ],
+          "effects": [
+            {
+              "partsCount": 2,
+              "descriptions": [
+                "최대 HP / 최대 MP  +2500",
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +10%"
+              ]
+            },
+            {
+              "partsCount": 3,
+              "descriptions": [
+                "올스탯  +50",
+                "공격력 / 마력  +40",
+                "방어력  +600",
+                "보스 몬스터 데미지 +10%"
+              ]
+            },
+            {
+              "partsCount": 4,
+              "descriptions": [
+                "최대 HP / 최대 MP  +15%",
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +10%"
+              ]
+            },
+            {
+              "partsCount": 5,
+              "descriptions": [
+                "공격력 / 마력  +40",
+                "몬스터 방어율 무시 +20%"
+              ]
+            },
+            {
+              "partsCount": 6,
+              "descriptions": [
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +15%"
+              ]
+            },
+            {
+              "partsCount": 7,
+              "descriptions": [
+                "올스탯  +50, 최대 HP / 최대 MP  +2500",
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +15%"
+              ]
+            },
+            {
+              "partsCount": 8,
+              "descriptions": [
+                "공격력 / 마력  +40",
+                "보스 몬스터 데미지 +15%"
+              ]
+            }
+          ]
+        },
+        "skillNames": null,
+        "seedRingType": 0,
+        "seedRingTotalInfo": null,
+        "seedRingLevel": 0,
+        "attackSpeed": null,
+        "durability": null,
+        "stat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 80,
+          "dex": 122,
+          "int": 36,
+          "luk": 42,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 10,
+          "mad": 0,
+          "pdd": 750,
+          "speed": 4,
+          "jump": 3,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 15,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "baseStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 80,
+          "dex": 80,
+          "int": 0,
+          "luk": 0,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 10,
+          "mad": 0,
+          "pdd": 750,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 15,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "starforceStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 0,
+          "dex": 0,
+          "int": 0,
+          "luk": 0,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 0,
+          "mad": 0,
+          "pdd": 0,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 0,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "upgradeStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 0,
+          "dex": 0,
+          "int": 0,
+          "luk": 0,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 0,
+          "mad": 0,
+          "pdd": 0,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 0,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "exOptionStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 0,
+          "dex": 42,
+          "int": 36,
+          "luk": 42,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 0,
+          "mad": 0,
+          "pdd": 0,
+          "speed": 4,
+          "jump": 3,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 0,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "timeLimitedStat": {
+          "reduceReq": 0,
+          "incReq": 0,
+          "arc": 0,
+          "aut": 0,
+          "str": 0,
+          "dex": 0,
+          "int": 0,
+          "luk": 0,
+          "all": 0,
+          "mhp": 0,
+          "mmp": 0,
+          "hpr": 0,
+          "mpr": 0,
+          "mdf": 0,
+          "pad": 0,
+          "mad": 0,
+          "pdd": 0,
+          "speed": 0,
+          "jump": 0,
+          "dam": 0,
+          "bdr": 0,
+          "imdr": 0,
+          "addExpr": 0,
+          "expRate": 0,
+          "srExpRate": 0,
+          "srMesoRate": 0,
+          "srDropRate": 0,
+          "pqExpRate": 0,
+          "chuc": 0,
+          "craft": 0
+        },
+        "cashOptionStat": null,
+        "preventSlip": false,
+        "supportWarm": false,
+        "upgradeInfo": {
+          "disabledSummary": "",
+          "starForce": {
+            "current": 0,
+            "max": 30,
+            "canUpgrade": true,
+            "description": "스타포스 : 없음 (최대 30성)"
+          },
+          "scroll": {
+            "current": 0,
+            "remaining": 12,
+            "failure": 0,
+            "max": 12,
+            "canUpgrade": true,
+            "description": "주문서 강화 없음 (잔여 12회, 복구 가능 0회)"
+          },
+          "exOption": {
+            "sum": 16,
+            "canUpgrade": true,
+            "entries": [
+              {
+                "grade": 6,
+                "text": "DEX, LUK  +42"
+              },
+              {
+                "grade": 4,
+                "text": "이동속도  +4"
+              },
+              {
+                "grade": 3,
+                "text": "INT  +36"
+              },
+              {
+                "grade": 3,
+                "text": "점프력  +3"
+              }
+            ],
+            "description": "추가옵션"
+          },
+          "potential": {
+            "grade": 4,
+            "entries": [
+              {
+                "grade": 4,
+                "text": "스킬 재사용 대기시간 -2초"
+              },
+              {
+                "grade": 3,
+                "text": "STR +10%"
+              },
+              {
+                "grade": 3,
+                "text": "<쓸만한 미스틱 도어> 스킬 사용 가능"
+              }
+            ],
+            "description": "잠재능력 : 레전드리"
+          },
+          "additionalPotential": {
+            "grade": 0,
+            "entries": [],
+            "description": "에디셔널 잠재능력 : 없음"
+          }
+        },
+        "soulWeapon": null,
+        "exceptionalUpgrade": null,
+        "mvpGrade": null,
+        "attributeInfo": {
+          "descs": [],
+          "itemLimit": null,
+          "seedRingLimit": null
+        },
+        "addition": null,
+        "epicDesc": null,
+        "variableStat": null,
+        "illusionRingGrade": null,
+        "descs": [
+          "#c일부 상황에서는 보이지 않는 아이템입니다.#"
+        ],
+        "growthDescs": [],
+        "specificTargetDescs": [],
+        "prismColorInfo": null,
+        "prismPartName": null,
+        "prismColor": null,
+        "symbolGrowth": null,
+        "normalGrowth": null
+      }
+    }
+  ],
+  "page": 1,
+  "limit": 20,
+  "total": 466,
+  "totalPages": 24,
+  "hasNext": true,
+  "searchKey": "00000000-0000-4000-8000-000000000000"
+}
