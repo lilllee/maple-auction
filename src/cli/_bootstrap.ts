@@ -40,7 +40,9 @@ export async function openSession(opts: { requireLogin: boolean }): Promise<Sess
         throw new ApiError('로그인된 세션이 없습니다. npm start 로 먼저 로그인해 주세요.', 0);
       }
       console.log('브라우저 창에서 넥슨 로그인(OTP)을 끝내 주세요. 끝나면 자동으로 이어집니다.');
-      await browser.waitForSession(0, { navigate: false });
+      if (!(await browser.waitForSession(0, { navigate: false }))) {
+        throw new Error('브라우저 창이 닫혔습니다. 다시 실행해 주세요.');
+      }
     }
     await browser.minimize();
     const selection = await resolveSelection(browser, {

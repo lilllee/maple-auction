@@ -14,8 +14,11 @@ async function main(): Promise<void> {
   const log = (msg: string): void => console.log(`[${new Date().toLocaleTimeString('ko-KR')}] ${msg}`);
   const deps = createWatchDeps({ session, notifier, state: loadState(stateFile), stateFile, log });
 
+  const { remaining } = await getDailyLimit(browser).catch(async (err: unknown) => {
+    await browser.close().catch(() => undefined);
+    throw err;
+  });
   try {
-    const { remaining } = await getDailyLimit(browser);
     await notifier.send(formatStartMessage(config.search, remaining));
   } catch (err) {
     await browser.close().catch(() => undefined);
@@ -27,29 +30,42 @@ async function main(): Promise<void> {
   const loop = startLoop(deps, config.intervalMinutes * 60_000);
   console.log(`감시 시작: ${config.intervalMinutes}분마다 검색, Ctrl+C로 종료`);
 
-  let shuttingDown = false;
+  let exiting = false;
   const shutdown = (): void => {
-    if (shuttingDown) return;
-    shuttingDown = true;
+    if (exiting) return;
+    exiting = true;
     loop.stop();
     void browser.close().catch(() => undefined).then(() => process.exit(0));
   };
   process.on('SIGINT', shutdown);
   process.on('SIGTERM', shutdown);
 
-  let crashing = false;
   const crash = (err: unknown): void => {
-    if (crashing) return;
-    crashing = true;
+    console.error('오류: ' + errorMessage(err));
+    if (err instanceof Error && err.stack) console.error(err.stack);
+    if (exiting) return;
+    exiting = true;
     loop.stop();
     void (async () => {
-      try { await notifier.send(formatStopMessage(String(err))); } catch { /* 무시 */ }
-      try { await browser.close(); } catch { /* 무시 */ }
+      const timeout = new Promise<void>((r) => setTimeout(r, 10_000).unref());
+      await Promise.race([
+        notifier.send(formatStopMessage(String(err))).catch(() => undefined),
+        timeout,
+      ]);
+      await Promise.race([browser.close().catch(() => undefined), timeout]);
       process.exit(1);
     })();
   };
   process.on('uncaughtException', crash);
   process.on('unhandledRejection', crash);
+
+  browser.page.on('close', () => {
+    if (exiting) return;
+    exiting = true;
+    console.error('브라우저 창이 닫혔습니다. 프로그램을 종료합니다.');
+    loop.stop();
+    process.exit(1);
+  });
 }
 
 main().catch((err: unknown) => {

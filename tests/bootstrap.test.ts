@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { describe, expect, test } from 'vitest';
+import { afterEach, describe, expect, test } from 'vitest';
 import { createWatchDeps, errorMessage, exitCodeFor, type Session } from '../src/cli/_bootstrap.js';
 import { ConfigError, type AppConfig, type SearchSpec } from '../src/config.js';
 import type { Notifier } from '../src/kakao/send.js';
@@ -30,6 +30,11 @@ interface FakeOpts {
   restore?: () => Promise<void>;
 }
 
+const tmpDirs: string[] = [];
+afterEach(() => {
+  for (const d of tmpDirs.splice(0)) fs.rmSync(d, { recursive: true, force: true });
+});
+
 function setup(opts: FakeOpts = {}) {
   const calls: string[] = [];
   const fetches: Array<{ method: string; path: string; body?: unknown }> = [];
@@ -52,6 +57,7 @@ function setup(opts: FakeOpts = {}) {
   const notifier: Notifier = { async send(t) { sent.push(t); } };
   const logs: string[] = [];
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'maple-'));
+  tmpDirs.push(dir);
   const stateFile = path.join(dir, 'state.json');
   const state = { ...EMPTY_STATE };
   const session: Session = {
