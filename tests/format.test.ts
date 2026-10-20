@@ -134,3 +134,10 @@ test('고정 문구', () => {
 test('옵션이 없으면 옵션 없음', () => {
   expect(formatStartMessage({ ...spec, potentialOptions: [] }, 5)).toBe('[옥션 감시 시작]\n에테르넬 나이트헬름 / 레전드리 / 옵션 없음\n오늘 남은 검색 5회');
 });
+
+test('이름이 너무 길어도 최종 상한 200자를 지킨다', () => {
+  const m = formatListingMessage({ ...base, itemName: '가'.repeat(250) }, 1, 1);
+  expect(textLength(m)).toBe(200);
+  expect(m.endsWith('…')).toBe(true);
+  expect(m.split('\n')[0]).toBe('[1/1] 1,234,567,890 메소');
+});

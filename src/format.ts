@@ -59,7 +59,8 @@ export function formatListingMessage(l: Listing, index: number, total: number): 
     lines[2] = truncateWithEllipsis(lines[2], MAX_TEXT_LENGTH - fixed);
   }
 
-  return lines.join('\n');
+  const message = lines.join('\n');
+  return textLength(message) > MAX_TEXT_LENGTH ? truncateWithEllipsis(message, MAX_TEXT_LENGTH) : message;
 }
 
 function gradeLabel(code: SearchSpec['potentialGrade']): string {
